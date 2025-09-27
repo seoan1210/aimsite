@@ -18,62 +18,73 @@
 
     <main>
         <section id="intro" class="section-container">
-            <h2>✨ 학습 도구로서의 가치와 목표</h2>
-            <p>이 프로그램은 단순한 이득을 위한 도구가 아닌, <strong>컴퓨터 비전(Computer Vision)</strong>과 <strong>AI 제어 로직</strong>을 이해하기 위한 학습 자료입니다. 봇이 화면에서 대상을 <strong>어떻게 인식</strong>하고 <strong>어떻게 조준</strong>하는지 그 원리를 투명하게 분석할 수 있습니다.</p>
-            <p>프로젝트의 최종 목표는 <strong>인공지능 기반의 게임 환경 분석 및 제어 기술</strong>을 배우고 싶은 개발자, 학생, 연구자들에게 실질적인 코드와 동작 원리를 제공하는 것입니다. 저희는 이 코드를 통해 AI와 게임의 상호작용을 윤리적이고 건설적으로 연구하고자 합니다.</p>
+            <h2>✨ 프로젝트 개요: 학습 도구로서의 가치와 목표</h2>
+            <p>이 프로그램은 단순한 이득을 위한 도구가 아닌, <strong>컴퓨터 비전(Computer Vision)</strong>과 <strong>AI 제어 로직</strong>을 이해하기 위한 심도 있는 학습 자료입니다. 봇이 화면에서 대상을 <strong>어떻게 인식</strong>하고 <strong>어떻게 조준</strong>하는지 그 원리를 투명하게 분석할 수 있습니다.</p>
+            <p>프로젝트의 최종 목표는 <strong>실시간 환경 분석 및 제어 기술</strong>을 배우고 싶은 개발자, 학생, 연구자들에게 실질적인 코드와 동작 원리를 제공하는 것입니다. 이 코드를 통해 AI와 게임의 상호작용 원리를 **윤리적이고 건설적인 방식**으로 연구할 수 있습니다. 특히, **지연 시간(Latency)** 및 **정밀 제어** 기술에 대한 이해도를 높이는 데 중점을 둡니다.</p>
+
+            <h3>주요 학습 목표 심화</h3>
+            <ul class="learning-goals">
+                <li><strong>컴퓨터 비전 (CV) 기초:</strong> OpenCV를 활용한 HSV 색상 필터링 및 모폴로지 연산의 실제 적용 사례를 학습합니다.</li>
+                <li><strong>실시간 제어 시스템:</strong> 화면 캡처, 분석, 마우스 이동이 순환하는 **피드백 루프(Feedback Loop)**의 설계 원리를 이해합니다.</li>
+                <li><strong>휴먼-라이크 동작 구현:</strong> 감속 로직을 통해 인공지능이 인간과 유사하게 움직이는 **제어 알고리즘**의 기본을 습득합니다.</li>
+            </ul>
         </section>
 
         <section id="ethics" class="section-container">
             <h2>🛡️ 프로젝트 윤리 및 투명성</h2>
             <div class="ethics-list">
                 <div class="ethics-item">
-                    <h3>비메모리 접근</h3>
-                    <p>본 코드는 게임의 **내부 메모리**에 접근하지 않고, 오직 **화면 출력(픽셀 데이터)**만을 분석합니다. 이는 불법 프로그램과의 **기술적인 경계선**을 명확히 하고, **안전한 학습 환경**을 보장합니다.</p>
+                    <h3>비메모리 접근 (화이트박스)</h3>
+                    <p>본 코드는 게임의 <strong>내부 메모리</strong>에 접근하지 않고, 오직 <strong>화면 출력(픽셀 데이터)</strong>만을 분석합니다. 이는 불법 프로그램과의 <strong>기술적인 경계선</strong>을 명확히 하고, <strong>안전한 학습 환경</strong>을 보장합니다.</p>
                 </div>
                 <div class="ethics-item">
-                    <h3>교육 목적 강조</h3>
-                    <p>코드의 복잡한 **감속 로직 (Human Mode)**은 봇의 움직임을 숨기기 위함이 아닌, AI가 **인간과 유사하게** 목표를 추적하는 **제어 공학적 원리**를 보여주기 위함입니다.</p>
+                    <h3>교육 목적 강조 및 공개</h3>
+                    <p>코드 전체가 **GitHub**에 공개되어 누구나 분석하고 검증할 수 있습니다. 프로젝트의 모든 기능과 로직은 AI의 움직임 제어 원리를 보여주기 위한 **교육 목적**에만 국한됩니다.</p>
                 </div>
             </div>
         </section>
         
         <section id="tech-stack" class="section-container">
-            <h2>⚙️ 기술 스택 및 환경</h2>
-            <p>본 교육용 프로그램의 핵심 기술 스택입니다. 소스 코드를 분석하고 직접 개발해 보세요.</p>
+            <h2>⚙️ 기술 스택 상세 및 환경 설정</h2>
+            <p>본 교육용 프로그램은 다음과 같은 기술 스택으로 구성되어 있습니다. 원활한 코드 분석 및 실행을 위해 환경을 구축해 보세요.</p>
             <div class="tech-list">
                 <div class="tech-item">
                     <h3>주요 언어</h3>
                     <p>Python 3.x</p>
-                    <p class="detail-text">간결하고 강력한 라이브러리를 활용하기 위한 선택입니다.</p>
+                    <p class="detail-text">신속한 프로토타이핑과 광범위한 라이브러리 지원을 위한 선택입니다.</p>
                 </div>
                 <div class="tech-item">
-                    <h3>핵심 라이브러리</h3>
+                    <h3>Core CV & Math</h3>
                     <p>OpenCV (<code>cv2</code>), NumPy</p>
-                    <p class="detail-text">실시간 이미지 처리와 배열 연산에 필수적인 모듈입니다.</p>
+                    <p class="detail-text">실시간 이미지 처리, 색상 공간 변환, 고속 배열 연산의 근간입니다.</p>
                 </div>
                 <div class="tech-item">
-                    <h3>I/O 및 제어</h3>
+                    <h3>System I/O</h3>
                     <p>mss, pywin32</p>
-                    <p class="detail-text">화면 캡처와 저수준(Low-level) 마우스 입력 제어를 담당합니다.</p>
+                    <p class="detail-text">Windows 환경에서 화면 데이터를 캡처하고 저수준 마우스 입력을 제어하는 데 사용됩니다.</p>
                 </div>
             </div>
         </section>
 
         <section id="code-analysis" class="section-container">
             <h2>🔎 코드 분석: AI 작동 원리 해부 심화</h2>
-            <p>제공된 파이썬 코드(<code>main.py</code>)의 주요 작동 원리를 3단계로 나누어 설명합니다. 실제 코드 줄과 기능을 연결하여 학습 효과를 극대화하세요.</p>
+            <p>제공된 파이썬 코드(<code>main.py</code>)의 주요 작동 원리를 4단계로 나누어 설명합니다. 코드 내부의 변수명과 함수명을 연결하여 학습하세요.</p>
             <div class="analysis-list">
                 <div class="analysis-item">
-                    <h3>1. ROI 설정과 색상 공간 변환 (<span class="code-highlight">grab_screen</span> / <span class="code-highlight">cv2.cvtColor</span>)</h3>
-                    <p>화면 전체가 아닌 중앙 <strong>700x700 픽셀</strong> 영역만(<code>BOX_SIZE</code>) 캡처하여 <strong>처리 속도</strong>를 높입니다. 캡처된 이미지는 **RGB**보다 색상 구분이 용이한 <strong>HSV 색 공간</strong>으로 즉시 변환되어 타겟 탐색 준비를 마칩니다.</p>
+                    <h3>1. ROI 설정과 색상 공간 변환 (<code>grab_screen</code> / <code>cv2.cvtColor</code>)</h3>
+                    <p>화면 중앙에 <strong>700x700 픽셀</strong> 영역(<code>BOX_SIZE</code>)만 캡처하여 **처리 지연 시간(Latency)**을 최소화합니다. 이미지는 <strong>HSV 색 공간</strong>으로 변환되어 빛의 영향에 덜 민감한 상태로 타겟 탐색을 준비합니다.</p>
                 </div>
                 <div class="analysis-item">
-                    <h3>2. 모폴로지 연산과 타겟 판별 (<span class="code-highlight">cv2.morphologyEx</span> / <span class="code-highlight">cv2.findContours</span>)</h3>
-                    <p>단순 마스크를 **오픈/클로즈 모폴로지 연산**으로 처리하여 노이즈를 제거하고 타겟을 묶어줍니다. 이후 윤곽선 분석과 **종횡비(W/H &gt; 3.0) 필터링**을 통해 **체력 바**를 최종 타겟으로 확정하며 **오탐률을 최소화**합니다.</p>
+                    <h3>2. 모폴로지 연산과 필터링 (<code>cv2.morphologyEx</code> / <code>cv2.findContours</code>)</h3>
+                    <p>단순 색상 필터링 후, **오픈/클로즈 모폴로지 연산**을 통해 흩어진 픽셀 노이즈를 제거하고 타겟을 하나의 덩어리로 만듭니다. 이후 **종횡비(W/H &gt; 3.0) 필터링**을 적용하여 적 팀의 <strong>체력 바</strong>만을 최종 타겟으로 확정하며 오탐률을 줄입니다.</p>
                 </div>
                 <div class="analysis-item">
-                    <h3>3. 속도 제어와 마우스 입력 (<span class="code-highlight">move_mouse</span>)</h3>
-                    <p>계산된 조준 오프셋을 **<code>smoothness = 30</code>**으로 나누어 마우스 이동량을 **감속**시킵니다. 이 로직은 단순한 '텔레포트' 이동이 아닌, 오차가 줄어들수록 제어량도 줄어드는 **PID 제어기**와 유사한 원리를 보여주며 <strong>제어 공학</strong>적 측면을 학습할 수 있습니다.</p>
+                    <h3>3. 실시간 제어 로직 (<code>move_mouse</code> 함수)</h3>
+                    <p>계산된 조준 오프셋을 <strong><code>smoothness = 30</code></strong>으로 나누어 마우스 이동량을 **감속**시킵니다. 이 로직은 오차가 클 때 빠르게 움직이고, 오차가 작아지면 느리게 움직이는 **비례 제어(Proportional Control)**의 원리를 내포하고 있습니다. 이는 <strong>부드러운 인간의 동작</strong>을 모방하는 핵심입니다.</p>
+                </div>
+                <div class="analysis-item">
+                    <h3>4. 루프 및 시스템 연동 (<code>main</code> 함수)</h3>
+                    <p>프로그램은 <code>while True</code> 루프를 통해 **무한히** 화면 캡처, 분석, 제어 과정을 반복합니다. 시스템 API인 **<code>win32api.mouse_event</code>**를 사용하여 OS 레벨에서 직접 마우스 입력을 발생시키는 방식으로 게임과 상호작용합니다.</p>
                 </div>
             </div>
         </section>
@@ -83,15 +94,15 @@
             <ul class="faq-list"> 
                 <li class="faq-item">
                     <h3>Q. 이 프로그램이 일반적인 핵(Hack)과 다른 점은 무엇인가요?</h3>
-                    <p>A. 일반 핵은 **메모리(Memory)에 직접 접근**하여 데이터를 조작하지만, 저희 프로그램은 게임 외적인 영역인 **화면 픽셀(Pixel)**만을 분석합니다. 이는 AI 학습 원리를 보여주는 데 초점을 맞춘 순수한 **외부 제어 학습 도구**입니다.</p>
+                    <p>A. 일반 핵은 **메모리(Memory)에 직접 접근**하여 데이터를 조작하지만, 저희 프로그램은 게임 외적인 영역인 **화면 픽셀(Pixel)**만을 분석합니다. 이 방식은 AI 학습 원리를 보여주는 데 초점을 맞춘 순수한 **외부 제어 학습 도구**입니다.</p>
                 </li>
                 <li class="faq-item">
                     <h3>Q. AimbotController.exe는 어떤 파일인가요?</h3>
                     <p>A. **<code>main.py</code>** 소스 코드를 **실행 가능한 파일(.exe)**로 변환한 것입니다. Python 환경 구축 없이 바로 실행해서 프로그램의 동작을 확인해 볼 수 있습니다. (Windows 전용)</p>
                 </li>
                 <li class="faq-item">
-                    <h3>Q. 프로젝트에 기여할 수 있나요?</h3>
-                    <p>A. 물론입니다! 저희 **GitHub 저장소**로 오셔서 버그 리포트, 코드 개선 제안, 새로운 기능 추가 등 다양한 방법으로 기여할 수 있습니다. 적극적인 참여를 환영합니다!</p>
+                    <h3>Q. 코드를 수정하려면 어떤 툴이 필요한가요?</h3>
+                    <p>A. Python 설치, VS Code 또는 PyCharm 같은 **코드 에디터**, 그리고 터미널에서 <code>pip install opencv-python numpy mss pywin32</code> 명령어로 라이브러리만 설치하면 됩니다.</p>
                 </li>
             </ul>
         </section>
