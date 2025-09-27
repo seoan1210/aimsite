@@ -3,46 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AimBot Educator: 오버워치 조준 학습 도구</title>
+    <title>AimBot Educator: 오버워치 학습 도구</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <h1>AimBot Educator 🎯</h1>
-        <p>오버워치 조준의 원리를 배우는 교육용 AI 도구</p>
+        <div class="header-content">
+            <h1>AimBot Educator <span>🎯</span></h1>
+            <p>컴퓨터 비전으로 오버워치 조준 원리를 배우는 <span class="highlight">교육용 AI 도구</span></p>
+        </div>
     </header>
 
     <main>
-        <section id="intro">
-            <h2>✨ 왜 AimBot Educator 인가요?</h2>
-            <p>이 프로그램은 단순한 '치트'가 아닌, **컴퓨터 비전(Computer Vision)**과 **AI 제어 로직**을 학습하기 위해 개발된 도구입니다. 실제 게임 환경에서 봇이 대상을 어떻게 인식하고 조준하는지 그 원리를 해부하여 사용자에게 기술적 이해를 높여줍니다.</p>
+        <section id="intro" class="card">
+            <h2>✨ 학습 도구로서의 가치</h2>
+            <p>이 프로그램은 단순한 '치트'가 아닌, **AI 알고리즘**과 **컴퓨터 비전** 기술을 심도 있게 이해하기 위해 개발되었습니다. 봇이 화면에서 대상을 어떻게 인식하고, 궤적을 예측하며 조준하는지 그 원리를 직접 분석해 보세요.</p>
         </section>
 
-        <section id="features">
+        <section id="features" class="card">
             <h2>💡 주요 학습 기능</h2>
-            <ul>
-                <li>**실시간 타겟 인식:** 적 영웅을 픽셀 단위로 구분하는 기술 시연.</li>
-                <li>**정확도 로직 분석:** 조준 속도 및 정확도를 결정하는 알고리즘 공개.</li>
-                <li>**교육 목적 강조:** 불법 프로그램과의 기술적 차이점 명확히 설명.</li>
-            </ul>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h3>인식 로직 공개</h3>
+                    <p>적 영웅을 구분하고 타겟팅하는 **픽셀 분석 및 AI 모델**의 작동 방식을 시각적으로 학습합니다.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>반응 속도 분석</h3>
+                    <p>인풋 지연 및 조준 속도(Flick/Tracking)를 결정하는 **제어 로직**의 최적화 원리를 이해합니다.</p>
+                </div>
+            </div>
         </section>
         
-        <section id="download">
-            <h2>🚀 프로그램 다운로드</h2>
-            <p>소스 코드를 직접 확인하고 학습해 보세요. 오직 교육 및 연구 목적으로만 사용해 주세요!</p>
+        <section id="download" class="card">
+            <h2>🚀 소스 코드 다운로드</h2>
+            <p>교육 및 연구 목적으로만 사용해 주세요! GitHub에서 파이썬 소스 코드를 바로 받아보세요.</p>
             
-            <a href="https://github.com/seoan1210/overwatch-aim/edit/main/main.py" target="_blank" class="download-button">
-                GitHub 소스 코드 다운로드 (main.py)
+            <a href="https://raw.githubusercontent.com/seoan1210/overwatch-aim/main/main.py" target="_blank" class="download-button">
+                main.py (소스 코드 바로 다운로드)
             </a>
             
-            <p class="warning-text">⚠️ **주의:** 본 프로그램은 교육용이며, 실제 게임 환경에서 사용할 경우 영구 정지 등의 불이익을 받을 수 있습니다. 책임은 사용자에게 있습니다.</p>
+            <p class="warning-text">⚠️ **경고:** 본 프로그램은 **교육용**입니다. 실제 게임 환경에서 사용할 경우 계정 영구 정지 등의 불이익을 받을 수 있습니다. 모든 책임은 사용자에게 있습니다.</p>
         </section>
 
     </main>
 
     <footer>
-        <p>&copy; 2025 AimBot Educator Project. All Rights Reserved.</p>
+        <p>Project by seoan1210 | &copy; 2025 AimBot Educator.</p>
     </footer>
 
 </body>
