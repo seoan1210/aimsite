@@ -1,93 +1,123 @@
-/* 기본 설정 */
+/* 기본 리셋 및 폰트 적용 (Simplicity First!) */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1a202c; /* 어두운 오버워치 테마 배경 */
-    color: #e2e8f0; /* 밝은 텍스트 */
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f7f7; /* 매우 밝은 배경 */
+    color: #333333; /* 짙은 텍스트 */
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
 
+/* 헤더 */
 header {
-    background-color: #2c5282; /* 짙은 파란색 헤더 */
-    padding: 40px 0;
+    background-color: #ffffff; /* 하얀색 헤더 */
+    padding: 60px 0 40px;
     text-align: center;
-    border-bottom: 5px solid #f6ad55; /* 오버워치 스타일 포인트 색상 */
+    border-bottom: 3px solid #007bff; /* 심플한 파란색 라인 강조 */
 }
 
-h1 {
+.header-content h1 {
     font-size: 3em;
+    font-weight: 700;
     margin-bottom: 5px;
+    color: #007bff; /* 핵심 색상: 파란색 */
 }
 
+.header-content p {
+    font-size: 1.1em;
+    color: #666666;
+}
+
+.highlight {
+    font-weight: 600;
+    color: #007bff;
+}
+
+/* 메인 컨텐츠 영역 */
 main {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-section {
-    background-color: #2d3748; /* 섹션 배경 */
+/* 섹션 컨테이너 - 박스 그림자 제거 및 미니멀 디자인 적용 */
+.section-container {
+    background-color: #ffffff; /* 흰색 배경 */
     padding: 30px;
     margin-bottom: 30px;
+    border: 1px solid #e0e0e0; /* 아주 얇은 테두리 */
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
-    color: #f6ad55; /* 포인트 색상 제목 */
-    border-bottom: 2px solid #4a5568;
+    color: #333333;
+    font-size: 1.8em;
+    border-bottom: 2px solid #e0e0e0; /* 얇은 구분선 */
     padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* 기능 목록 디자인 */
+.feature-list {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.feature-item {
+    flex: 1;
+    background: #f0f8ff; /* 연한 하늘색 배경 */
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 4px solid #007bff;
+    text-align: left;
+}
+
+.feature-item h3 {
+    color: #007bff;
+    font-size: 1.2em;
     margin-top: 0;
 }
 
-/* 목록 스타일 */
-#features ul {
-    list-style: none;
-    padding: 0;
-}
-
-#features li {
-    background: #4a5568;
-    margin-bottom: 10px;
-    padding: 15px;
-    border-left: 5px solid #38a169; /* 교육 강조 색상 */
-    border-radius: 4px;
-}
-
-/* 다운로드 버튼 스타일 */
+/* 다운로드 버튼 - 깔끔한 디자인 */
 .download-button {
-    display: inline-block;
-    background-color: #f6ad55; /* 오렌지색 버튼 */
-    color: #1a202c;
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    margin: 30px auto;
+    background-color: #007bff; /* 파란색 버튼 */
+    color: #ffffff;
     padding: 15px 30px;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2em;
-    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1.1em;
+    border-radius: 4px; /* 각진 테두리 */
     transition: background-color 0.3s;
-    margin-top: 15px;
+    text-align: center;
+    border: none;
 }
 
 .download-button:hover {
-    background-color: #ed8936;
+    background-color: #0056b3;
 }
 
 /* 경고 문구 */
 .warning-text {
-    color: #e53e3e; /* 빨간색 경고 */
-    margin-top: 20px;
+    color: #d9534f; /* 붉은색 경고 */
+    margin-top: 25px;
     font-size: 0.9em;
-    padding: 10px;
-    border: 1px dashed #e53e3e;
+    padding: 15px;
+    border: 1px solid #d9534f;
     border-radius: 4px;
+    background: #fef4f4;
 }
 
 /* 푸터 */
 footer {
     text-align: center;
     padding: 20px 0;
-    border-top: 1px solid #4a5568;
-    color: #a0aec0;
+    border-top: 1px solid #e0e0e0;
+    color: #999999;
     font-size: 0.8em;
 }
