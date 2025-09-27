@@ -19,29 +19,35 @@
     <main>
         <section id="intro" class="section-container">
             <h2>✨ 학습 도구로서의 가치</h2>
-            <p>이 프로그램은 단순한 이득을 위한 도구가 아닌, **컴퓨터 비전(Computer Vision)**과 **AI 제어 로직**을 이해하기 위한 학습 자료입니다. 봇이 대상을 **어떻게 인식**하고 **어떻게 조준**하는지 그 원리를 투명하게 분석할 수 있습니다.</p>
+            <p>이 프로그램은 단순한 이득을 위한 도구가 아닌, **컴퓨터 비전(Computer Vision)**과 **AI 제어 로직**을 이해하기 위한 학습 자료입니다. 봇이 화면에서 대상을 **어떻게 인식**하고 **어떻게 조준**하는지 그 원리를 투명하게 분석할 수 있습니다.</p>
         </section>
 
-        <section id="features" class="section-container">
-            <h2>💡 주요 분석 기능</h2>
-            <div class="feature-list">
-                <div class="feature-item">
-                    <h3>인식 로직 분석</h3>
-                    <p>적 영웅을 구분하는 **픽셀 분석 및 AI 모델** 작동 방식을 시각적으로 학습합니다.</p>
+        <section id="code-analysis" class="section-container">
+            <h2>🔎 코드 분석: AI 작동 원리 해부</h2>
+            <div class="analysis-list">
+                <div class="analysis-item">
+                    <h3>1. 이미지 처리 (<span class="code-highlight">cv2.inRange</span>)</h3>
+                    <p>코드는 **HSV 색 공간** 변환 후, **특정 빨간색 범위**만 필터링합니다. 이는 오버워치 적팀의 **체력 바**를 인식하는 핵심 기술입니다. 불필요한 색을 제거하여 타겟을 분리해냅니다.</p>
                 </div>
-                <div class="feature-item">
-                    <h3>반응 속도 연구</h3>
-                    <p>조준 속도와 정확도를 결정하는 **제어 로직**의 최적화 원리를 이해합니다.</p>
+                <div class="analysis-item">
+                    <h3>2. 타겟 분리 (<span class="code-highlight">cv2.findContours</span>)</h3>
+                    <p>필터링된 마스크에서 **윤곽선**을 찾고, **종횡비(Aspect Ratio)** 필터링을 통해 체력 바처럼 길쭉한 직사각형 형태만 최종 타겟으로 확정합니다. 이 과정이 **오탐**을 줄이는 역할을 합니다.</p>
+                </div>
+                <div class="analysis-item">
+                    <h3>3. 휴먼 모드 제어 (<span class="code-highlight">move_mouse</span>)</h3>
+                    <p>마우스 이동 시 **`smoothness = 30`**으로 오프셋을 나눠 움직임을 **감속**시킵니다. 이는 기계적인 움직임을 **인간의 움직임처럼 부드럽게** 모방하는 제어 로직을 학습하기 위함입니다.</p>
                 </div>
             </div>
         </section>
-        
         <section id="download" class="section-container">
             <h2>🚀 소스 코드 다운로드</h2>
             <p>교육 및 연구 목적으로만 사용해 주세요. GitHub에서 파이썬 소스 코드를 바로 받아보세요.</p>
             
-            <a href="https://raw.githubusercontent.com/seoan1210/overwatch-aim/main/main.py" target="_blank" class="download-button">
-                main.py (소스 코드 다운로드)
+            <a href="https://raw.githubusercontent.com/seoan1210/overwatch-aim/main/main.py" 
+               download="main.py" 
+               target="_blank" 
+               class="download-button">
+                main.py (소스 코드 바로 다운로드)
             </a>
             
             <p class="warning-text">⚠️ **경고:** 본 프로그램은 **교육용**입니다. 실제 게임 환경에서 사용할 경우 계정 영구 정지 등의 불이익을 받을 수 있습니다. 모든 책임은 사용자에게 있습니다.</p>
