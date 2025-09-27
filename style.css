@@ -58,6 +58,24 @@ h2 {
     margin-bottom: 20px;
 }
 
+h3 { /* 추가된 심화 학습 목표 등 */
+    color: #333333;
+    font-size: 1.3em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* 일반 목록 스타일 */
+.learning-goals {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+.learning-goals li {
+    margin-bottom: 8px;
+}
+
 /* 상세 텍스트 추가 */
 .detail-text {
     font-size: 0.9em;
