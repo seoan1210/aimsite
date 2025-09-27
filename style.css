@@ -58,7 +58,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-h3 { /* 추가된 심화 학습 목표 등 */
+h3 {
     color: #333333;
     font-size: 1.3em;
     margin-top: 20px;
@@ -82,6 +82,13 @@ h3 { /* 추가된 심화 학습 목표 등 */
     color: #777777;
     margin-top: 5px;
 }
+.table-note { /* 테이블 하단 노트 텍스트 */
+    font-size: 0.9em;
+    color: #999999;
+    text-align: center;
+    margin-top: 15px;
+}
+
 
 /* 🛡️ 윤리 섹션 스타일 */
 .ethics-list {
@@ -92,10 +99,10 @@ h3 { /* 추가된 심화 학습 목표 등 */
 
 .ethics-item {
     flex: 1;
-    background: #fff5f5; /* 연한 붉은색 배경 (경고/윤리 강조) */
+    background: #fff5f5;
     padding: 20px;
     border-radius: 6px;
-    border-left: 4px solid #d9534f; /* 경고 붉은색 라인 */
+    border-left: 4px solid #d9534f;
 }
 
 .ethics-item h3 {
@@ -164,9 +171,45 @@ h3 { /* 추가된 심화 학습 목표 등 */
     font-weight: 600;
 }
 
+/* 🎯 신규 스타일: 명중률 테이블 */
+.accuracy-table {
+    width: 100%;
+    border-collapse: collapse; /* 테이블 테두리 하나로 합치기 */
+    margin-top: 20px;
+    font-size: 0.95em;
+    text-align: center;
+}
+
+.accuracy-table thead tr {
+    background-color: #007bff;
+    color: #ffffff;
+    border-bottom: 2px solid #0056b3;
+}
+
+.accuracy-table th, .accuracy-table td {
+    padding: 12px 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.accuracy-table tbody tr:nth-child(even) { /* 짝수 행 배경색 */
+    background-color: #f9f9f9;
+}
+
+.accuracy-table tbody tr:hover { /* 호버 효과 */
+    background-color: #e0f0ff;
+}
+
+/* 첫 번째 열 (버전) 강조 */
+.accuracy-table tbody tr td:first-child {
+    font-weight: 600;
+    text-align: left;
+    padding-left: 15px;
+}
+
+
 /* ❓ FAQ 목록 스타일 (<ul> 기반) */
 .faq-list {
-    list-style: none; /* 목록 마커 제거 */
+    list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
