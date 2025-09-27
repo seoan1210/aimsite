@@ -65,7 +65,30 @@ h2 {
     margin-top: 5px;
 }
 
-/* 기술 스택 목록 스타일 */
+/* 🛡️ 윤리 섹션 스타일 */
+.ethics-list {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.ethics-item {
+    flex: 1;
+    background: #fff5f5; /* 연한 붉은색 배경 (경고/윤리 강조) */
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 4px solid #d9534f; /* 경고 붉은색 라인 */
+}
+
+.ethics-item h3 {
+    color: #d9534f;
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+
+/* ⚙️ 기술 스택 목록 스타일 */
 .tech-list {
     display: flex;
     gap: 20px;
@@ -91,7 +114,7 @@ h2 {
     font-weight: 600;
 }
 
-/* 코드 분석 목록 디자인 */
+/* 🔎 코드 분석 목록 디자인 */
 .analysis-list {
     display: flex;
     flex-direction: column;
@@ -123,8 +146,11 @@ h2 {
     font-weight: 600;
 }
 
-/* FAQ 아이템 스타일 */
+/* ❓ FAQ 목록 스타일 (<ul> 기반) */
 .faq-list {
+    list-style: none; /* 목록 마커 제거 */
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -148,7 +174,7 @@ h2 {
 }
 
 
-/* 다운로드 버튼 및 깃허브 버튼 */
+/* 🚀 다운로드 섹션 */
 .download-section {
     text-align: center;
 }
@@ -175,7 +201,7 @@ h2 {
 
 .github-button {
     display: inline-block;
-    background-color: #333333; /* GitHub 색상 */
+    background-color: #333333;
     color: #ffffff;
     padding: 10px 20px;
     text-decoration: none;
