@@ -317,7 +317,7 @@
             <h3>핵심 구성 요소 상세 설명</h3>
             <ul class="learning-goals">
                 <li>**데이터 수집/제어 스레드 (Detector Thread):** **가장 빠르고** 핵심적인 역할을 합니다. 화면을 분석하고 즉시 마우스 제어 명령을 운영체제(OS)에 전달합니다.
-                    <span class="sub-description">**핵심 이유:** 화면 캡처와 제어는 1ms의 지연도 치명적이기 때문에, $\text{GUI}$ 같은 무거운 작업과는 완전히 분리하여 전담시켰습니다.</span>
+                    <span class="sub-description">**핵심 이유:** 화면 캡처와 제어는 1ms의 지연도 치명적이기 때문에, GUI 같은 무거운 작업과는 완전히 분리하여 전담시켰습니다.</span>
                 </li>
                 <li>**사용자 인터페이스 (GUI - PyQt5):** 시스템 상태를 보여주고, 사용자가 **'스무딩 값'** 같은 주요 설정값을 실시간으로 바꿀 수 있게 해줍니다.
                     <span class="sub-description">**핵심 이유:** 제어 스레드의 속도를 떨어뜨리지 않으면서도, 시스템을 **모니터링**하고 **디버깅**하기 위한 창구가 필요했습니다.</span>
@@ -337,9 +337,9 @@
                     <h4>고성능 ROI 기반 CV 파이프라인 (속도 향상의 비밀)</h4>
                     <ul class="learning-goals">
                         <li>**ROI (관심 영역) 캡처:** 전체 화면이 아닌, **꼭 봐야 하는 부분(화면 중앙의 작은 영역)**만 <code>mss</code>로 빠르게 캡처합니다.
-                            <span class="sub-description">**심화:** 일반적인 스크린샷은 수백 $\text{ms}$가 걸리지만, $\text{mss}$는 운영체제의 고속 $\text{API}$를 직접 사용해 **캡처 지연을 $1 \sim 2 \text{ms}$로** 낮춥니다.</span>
+                            <span class="sub-description">**심화:** 일반적인 스크린샷은 수백 ms가 걸리지만, <code>mss</code>는 운영체제의 고속 API를 직접 사용해 **캡처 지연을 1~2ms로** 낮춥니다.</span>
                         </li>
-                        <li>**HSV 색 공간 처리:** $\text{CV}$ 분석 시, 주변 환경의 밝기 변화에 영향을 덜 받도록 $\text{RGB}$ 대신 **$\text{HSV}$ 색 공간**에서 타겟 색상을 검출합니다.</li>
+                        <li>**HSV 색 공간 처리:** CV 분석 시, 주변 환경의 밝기 변화에 영향을 덜 받도록 RGB 대신 **HSV 색 공간**에서 타겟 색상을 검출합니다.</li>
                     </ul>
                 </div>
                 <div class="analysis-item">
@@ -402,7 +402,7 @@
                     </tr>
                 </tbody>
             </table>
-            <p class="table-note">**주목할 점:** V2.0은 사람의 **평균 반응 속도($\sim 50 \text{ms}$)**보다 훨씬 빠른 **$\sim 10 \text{ms}$의 $\text{Latency}$**를 기록했습니다. 이는 **제어 시스템의 고속 처리 능력**을 명확히 보여줍니다.</p>
+            <p class="table-note">**주목할 점:** V2.0은 사람의 **평균 반응 속도($\sim 50 \text{ms}$)**보다 훨씬 빠른 **$\sim 10 \text{ms}$의 Latency**를 기록했습니다. 이는 **제어 시스템의 고속 처리 능력**을 명확히 보여줍니다.</p>
         </section>
         
         <section id="research-future" class="section-container">
@@ -411,7 +411,7 @@
                 <div class="analysis-item">
                     <h4>주요 성과 및 얻은 교훈 (1-2줄 요약)</h4>
                     <ul class="learning-goals no-disc">
-                        <li><i class="fas fa-comment-dots" style="color: #007bff; margin-right: 5px;"></i> **주요 성과:** 고속 $\text{ROI}$ 캡처와 $\text{P}$-제어/$\text{WMA}$ 필터를 결합하여 **저지연, 고정확도의 실시간 제어 시스템**을 구축하고 성능을 검증했습니다.</li>
+                        <li><i class="fas fa-comment-dots" style="color: #007bff; margin-right: 5px;"></i> **주요 성과:** 고속 ROI 캡처와 P-제어/WMA 필터를 결합하여 **저지연, 고정확도의 실시간 제어 시스템**을 구축하고 성능을 검증했습니다.</li>
                         <li><i class="fas fa-comment-dots" style="color: #007bff; margin-right: 5px;"></i> **얻은 교훈:** 알고리즘의 복잡성보다 **데이터 파이프라인의 효율성(I/O 최적화)**이 실시간 제어 성능의 가장 큰 핵심이라는 것을 깨달았습니다.</li>
                     </ul>
                 </div>
@@ -420,7 +420,7 @@
             <h3 style="margin-top: 30px;">향후 심화 연구 방향</h3>
             <ul class="learning-goals">
                 <li>**PID 제어 루프 확장:** 잔류 오차를 제거하고 제어 응답을 더 정밀하게 다루는 **PID 제어**로 확장하여 제어 이론을 심층 연구할 예정입니다.</li>
-                <li>**딥러닝 기반 객체 검출:** $\text{GPU}$ 가속 $\text{AI}$ 모델(예: $\text{YOLOv}8$)을 통합하여 $\text{CV}$ 정확도를 획기적으로 향상시키고, **하드웨어 가속**을 통한 $\text{Latency}$ 최소화를 목표로 합니다.</li>
+                <li>**딥러닝 기반 객체 검출:** GPU 가속 AI 모델(예: YOLOv8)을 통합하여 CV 정확도를 획기적으로 향상시키고, **하드웨어 가속**을 통한 Latency 최소화를 목표로 합니다.</li>
             </ul>
         </section>
 
@@ -437,8 +437,8 @@
                 </div>
             </div>
             
-            <p class="source-link-text" style="font-size: 1.1em; margin-top: 30px; color: #333;">프로젝트 소스 코드 또는 연구 자료를 확인하고 싶으시다면 링크를 참고하여 주십시오.</p>
-            <a href="#" target="_blank" class="project-link"><i class="fab fa-github"></i> 연구 자료 GitHub 저장소</a>
+            <p class="source-link-text" style="font-size: 1.1em; margin-top: 30px; color: #333;">프로젝트 소스 코드 또는 연구 자료를 확인하고 싶으시다면 아래 링크를 참고하여 주십시오.</p>
+            <a href="https://www.youtube.com/user/GoogleDevelopers" target="_blank" class="project-link"><i class="fab fa-github"></i> 연구 자료 GitHub (가상 링크)</a>
         </section>
     </main>
 
