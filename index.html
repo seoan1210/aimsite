@@ -2,262 +2,181 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>실시간 시스템 제어 및 CV 분석 프로젝트: 연구 발표 심화 버전 (영상 포함)</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Malgun+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>교육용: 실시간 제어 시스템 개발 및 성능 분석 자료</title>
+    <link href="https://fonts.googleapis.com/css2?family=Malgun+Gothic&display=swap" rel="stylesheet">
     <style>
-        /* --- 기본 리셋 및 폰트 적용 --- */
+        /* --- 모바일 최적화 및 기본 설정 (폰 화면 맞춤형) --- */
         body {
-            font-family: 'Inter', 'Malgun Gothic', sans-serif;
-            background-color: #f7f7f7;
-            color: #333333;
+            font-family: 'Malgun Gothic', sans-serif;
+            background-color: #f0f0f0; /* 밝은 배경 */
+            color: #222222;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.5;
+            font-size: 16px;
         }
+
+        /* 헤더: 단순화 */
         header {
             background-color: #ffffff;
-            padding: 60px 0 40px;
+            padding: 30px 20px;
             text-align: center;
-            border-bottom: 3px solid #007bff;
+            border-bottom: 5px solid #0056b3; /* 진한 파란색으로 구분 */
         }
+
         .header-content h1 {
-            font-size: 3em;
+            font-size: 1.8em; /* 모바일에서 적당한 크기 */
             font-weight: 700;
-            margin-bottom: 5px;
-            color: #007bff;
+            margin: 0 0 5px 0;
+            color: #0056b3;
         }
+
         .header-content p {
-            font-size: 1.1em;
-            color: #666666;
+            font-size: 1em;
+            color: #555555;
+            margin: 0;
         }
+
         .highlight {
-            font-weight: 600;
+            font-weight: 700;
             color: #007bff;
         }
+
+        /* 메인 컨텐츠 영역: 좁은 화면에 최적화 */
         main {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
+            width: 100%;
+            max-width: 700px; /* PC에서도 너무 커지지 않도록 최대 폭 제한 */
+            margin: 20px auto;
+            padding: 0 10px;
         }
+
+        /* 섹션 컨테이너: 깔끔한 교육 자료 스타일 */
         .section-container {
             background-color: #ffffff;
-            padding: 30px;
-            margin-bottom: 30px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #dddddd;
+            border-radius: 6px;
         }
+
         h2 {
-            color: #333333;
-            font-size: 1.8em;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
+            color: #0056b3;
+            font-size: 1.5em;
+            border-bottom: 2px solid #eeeeee;
+            padding-bottom: 8px;
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: 700;
         }
+
         h3 {
             color: #333333;
-            font-size: 1.3em;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            font-size: 1.2em;
+            margin-top: 15px;
+            margin-bottom: 8px;
             font-weight: 600;
         }
+        
+        h4 {
+            color: #007bff;
+            font-size: 1.1em;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+
+        /* 목록 스타일 */
         .learning-goals {
             list-style: disc;
             padding-left: 20px;
-            margin-top: 15px;
-            margin-bottom: 0;
-        }
-        .learning-goals li {
-            margin-bottom: 8px;
-            color: #444444;
-        }
-        .learning-goals.no-disc {
-             list-style: none;
-             padding-left: 0;
+            margin-top: 10px;
         }
         .sub-description {
             font-size: 0.9em;
             color: #777777;
-            margin-top: -10px;
-            margin-bottom: 15px;
+            margin-top: 5px;
+            margin-bottom: 10px;
             display: block;
             border-left: 3px solid #ccc;
             padding-left: 10px;
         }
-        .ethics-list {
-            display: flex;
-            gap: 20px;
-            justify-content: space-between;
-        }
-        .ethics-item {
-            flex: 1;
-            background: #e6f7ff;
-            padding: 20px;
-            border-radius: 6px;
-            border-left: 4px solid #007bff;
-        }
-        .ethics-item h3 {
-            color: #007bff;
-            font-size: 1.2em;
-            margin-top: 0;
-            margin-bottom: 5px;
-        }
-        .tech-table {
+
+        /* 테이블: 모바일 대응 */
+        .tech-table, .accuracy-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 15px;
+            display: block; /* 모바일에서 표를 스크롤 가능하게 만듦 */
+            overflow-x: auto;
+            white-space: nowrap; /* 내용이 한 줄에 표시되도록 함 */
         }
-        .tech-table th, .tech-table td {
-            padding: 12px;
-            border: 1px solid #e0e0e0;
+        .tech-table thead, .accuracy-table thead {
+            display: table-header-group;
+        }
+        .tech-table th, .tech-table td, .accuracy-table th, .accuracy-table td {
+            padding: 10px;
+            border: 1px solid #dddddd;
             text-align: center;
+            min-width: 80px; /* 셀 최소 너비 확보 */
         }
-        .tech-table th {
-            background-color: #f0f8ff;
-            color: #333333;
-            font-weight: 700;
-        }
-        .tech-table td {
-             font-weight: 600;
-             color: #007bff;
-        }
-        .analysis-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .analysis-item {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 6px;
-            border: 1px solid #e0e0e0;
-            border-left: 4px solid #007bff;
+        .accuracy-table td:first-child {
             text-align: left;
         }
-        .analysis-item h4 {
-            color: #007bff;
-            font-size: 1.1em;
-            margin-top: 0;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
+
+        /* 코드 강조 (문자만 사용 요청에 따라 배경색만 사용) */
         code {
             font-family: monospace;
-            background-color: #e9ecef;
-            padding: 2px 5px;
+            background-color: #f7f7f7;
+            padding: 1px 4px;
             border-radius: 3px;
             color: #d9534f;
             font-weight: 600;
+            font-size: 0.95em;
         }
-
-        /* 비디오 컨테이너 스타일 */
+        
+        /* 비디오 컨테이너: 중앙 정렬 및 반응형 비디오 */
         .video-container {
-            margin-top: 30px;
-            margin-bottom: 30px;
-            background: #ffffff;
-            padding: 20px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
+            margin-top: 20px;
             text-align: center;
-        }
-        .video-container h3 {
-            color: #007bff;
         }
         .project-video {
             width: 100%;
-            max-width: 700px; /* 최대 크기 지정 */
-            border-radius: 6px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 500px;
+            height: auto;
+            border-radius: 4px;
         }
 
-        /* 🎯 명중률 테이블 */
-        .accuracy-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            font-size: 0.95em;
-            text-align: center;
-        }
 
-        .accuracy-table thead tr {
-            background-color: #007bff;
-            color: #ffffff;
-            border-bottom: 2px solid #0056b3;
-        }
-
-        .accuracy-table th, .accuracy-table td {
-            padding: 12px 8px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .accuracy-table tbody tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        .accuracy-table tbody tr:hover {
-            background-color: #e0f0ff;
-        }
-
-        .accuracy-table tbody tr td:first-child {
-            font-weight: 600;
-            text-align: left;
-            padding-left: 15px;
-        }
-        .accuracy-table tbody tr td:nth-child(2) {
-            font-weight: 700;
-            color: #333;
-        }
-        .table-note {
-            font-size: 0.9em;
-            color: #999999;
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        /* 🚀 다운로드 섹션 */
+        /* 다운로드 섹션 및 링크 */
         .download-section {
             text-align: center;
-            padding: 30px;
-            background-color: #f0f8ff;
+            padding: 20px;
+            background-color: #eaf3ff;
             border: 1px solid #cceeff;
-            border-radius: 8px;
+            border-radius: 6px;
         }
         
         .project-link {
-            display: inline-block;
+            display: block; /* 모바일에서 블록 형태로 전체 너비 사용 */
             background-color: #333333;
             color: #ffffff;
-            padding: 15px 30px;
+            padding: 12px 20px;
             text-decoration: none;
             font-weight: 600;
             border-radius: 4px;
-            transition: background-color 0.3s;
             margin-top: 15px;
-            font-size: 1.1em;
+            font-size: 1em;
         }
-
-        .project-link:hover {
-            background-color: #555555;
-        }
-
+        
         /* 푸터 */
         footer {
             text-align: center;
-            padding: 20px 0;
-            border-top: 1px solid #e0e0e0;
+            padding: 15px 0;
+            border-top: 1px solid #cccccc;
             color: #999999;
             font-size: 0.8em;
-        }
-
-        /* 반응형 디자인 */
-        @media (max-width: 768px) {
-            main { max-width: 95%; }
-            .ethics-list { flex-direction: column; }
-            .accuracy-table th, .accuracy-table td { padding: 10px 5px; }
-            .project-link { width: 100%; max-width: none; }
         }
     </style>
 </head>
@@ -265,19 +184,18 @@
 
     <header>
         <div class="header-content">
-            <h1>실시간 시스템 제어 및 컴퓨터 비전 분석 프로젝트</h1>
-            <p>고성능 제어 시스템 설계를 위한 <span class="highlight">컴퓨터 비전 심화 분석</span> 연구 보고서</p>
-            <p class="highlight" style="font-size: 1.1em; margin-top: 15px;"><i class="fas fa-flask"></i> 본 프로젝트는 실시간 제어 및 인공지능 로직 학습만을 목적으로 합니다. (순수 연구용)</p>
+            <h1>교육용: 실시간 제어 시스템 개발 심화 분석</h1>
+            <p>컴퓨터 비전 기반 제어 로직의 성능 분석 및 원리 학습 자료</p>
         </div>
     </header>
 
     <main>
         <section id="project-overview" class="section-container">
-            <h2><i class="fas fa-rocket"></i> 1. 프로젝트 개요 및 동기 (왜 만들었나?)</h2>
-            <p>이 연구는 **컴퓨터 비전(CV)** 기술을 활용해 실시간으로 시스템을 제어하는 **'피드백 루프'**를 구현하고, 그 성능 한계를 알아보는 것이 목표였습니다.</p>
-            <p>궁극적으로는 **아주 빠르게 반응해야 하는 시스템(Hard Real-Time System)**을 설계할 때, **화면 분석 속도**와 **입력 지연**을 어떻게 최소화하고 제어 안정성을 확보할 수 있는지 실제 코드로 검증하고자 했습니다.</p>
+            <h2>1. 프로젝트 개요 및 동기 (핵심 원리 이해)</h2>
+            <p>본 연구는 **컴퓨터 비전(CV)** 기술을 활용하여 실시간으로 외부 시스템을 제어하는 **피드백 루프**를 구축하고, 이 시스템의 성능 한계를 심층적으로 분석하는 것을 목표로 합니다.</p>
+            <p>가장 중요한 동기는 **'매우 빠르게 반응해야 하는 시스템 (Hard Real-Time System)'**을 설계할 때, 화면 분석 속도와 입력 지연을 어떻게 최소화하여 안정적인 제어 성능을 확보할 수 있는지 실제 코드로 검증하고 학습하는 것입니다.</p>
 
-            <h3>주요 기술 학습 목표</h3>
+            <h3>주요 학습 목표 요약</h3>
             <table class="tech-table">
                 <thead>
                     <tr>
@@ -292,83 +210,69 @@
                     </tr>
                     <tr>
                         <td>제어 이론</td>
-                        <td>P-제어, 가중 이동 평균 (WMA) 필터링</td>
+                        <td>비례 제어 (P-제어), 가중 이동 평균 (WMA)</td>
                     </tr>
                     <tr>
                         <td>보안적 관점</td>
-                        <td>탐지 회피 기법 연구 및 안티 치트 시스템 분석</td>
+                        <td>탐지 회피 메커니즘 연구 및 분석</td>
                     </tr>
                 </tbody>
             </table>
         </section>
 
         <section id="system-architecture" class="section-container">
-            <h2><i class="fas fa-sitemap"></i> 2. 시스템 아키텍처 및 구조 (어떻게 만들고 싶었나?)</h2>
-            <p>우리는 화면 캡처, 분석, 제어 명령의 세 단계를 **서로 간섭하지 않게** 분리하여, **작업을 동시에 처리(병렬 처리)**하는 구조를 목표로 했습니다. 이렇게 해야 한쪽이 느려져도 전체 시스템 속도에 영향을 덜 주기 때문입니다.</p>
+            <h2>2. 시스템 아키텍처 (왜 분리했나?)</h2>
+            <p>시스템은 데이터 수집 (컴퓨터 비전), 로직 처리 (제어), 사용자 인터페이스 (GUI)의 세 가지 모듈로 완전히 분리되어 **병렬 처리**됩니다. 이는 CPU 리소스를 효율적으로 나누고, 어느 한 부분이 지연되어도 전체 속도에 미치는 영향을 최소화하기 위함입니다.</p>
 
             <h3>핵심 구성 요소 상세 설명</h3>
             <ul class="learning-goals">
-                <li>**데이터 수집/제어 스레드 (Detector Thread):** **가장 빠르고** 핵심적인 역할을 합니다. 화면을 분석하고 즉시 마우스 제어 명령을 운영체제(OS)에 전달합니다.
-                    <span class="sub-description">**핵심 이유:** 화면 캡처와 제어는 1ms의 지연도 치명적이기 때문에, GUI 같은 무거운 작업과는 완전히 분리하여 전담시켰습니다.</span>
+                <li>**제어 전담 스레드 (Detector Thread):** 이 부분이 가장 빠르고 중요합니다. 화면 분석 및 즉각적인 마우스 제어 명령 전달을 전담합니다.
+                    <span class="sub-description">**배경:** 화면 캡처 및 제어는 1 밀리초의 지연도 성능에 치명적이므로, 복잡한 사용자 인터페이스 작업과 분리하여 독립적으로 고속 실행되도록 설계했습니다.</span>
                 </li>
-                <li>**사용자 인터페이스 (GUI - PyQt5):** 시스템 상태를 보여주고, 사용자가 **'스무딩 값'** 같은 주요 설정값을 실시간으로 바꿀 수 있게 해줍니다.
-                    <span class="sub-description">**핵심 이유:** 제어 스레드의 속도를 떨어뜨리지 않으면서도, 시스템을 **모니터링**하고 **디버깅**하기 위한 창구가 필요했습니다.</span>
-                </li>
-                <li>**스레드 간 통신 (PyQt5 Signal/Slot):** 서로 다른 두 개의 스레드가 안전하게 데이터를 주고받는 방식입니다.
-                    <span class="sub-description">**핵심 이유:** 멀티스레딩 환경에서 데이터를 동시에 건드리면 프로그램이 멈추거나 오작동(Race Condition)할 수 있어, PyQt5의 안전한 통신 방식을 사용했습니다.</span>
+                <li>**사용자 인터페이스 (PyQt5):** 시스템 상태를 모니터링하고, 사용자가 제어 설정값을 실시간으로 변경할 수 있도록 하는 창구입니다.
+                    <span class="sub-description">**배경:** 제어 로직의 속도를 방해하지 않으면서도, 시스템의 현재 상태를 확인하고 디버깅할 수 있는 환경을 제공합니다.</span>
                 </li>
             </ul>
         </section>
 
         <section id="code-analysis" class="section-container">
-            <h2><i class="fas fa-code"></i> 3. 구현 방식 및 동작 원리 (어떻게 동작하고 확인했나?)</h2>
-            <p>시스템은 화면을 **100번 이상** 캡처하고, 타겟과의 오차를 계산한 다음, **패턴 없는 움직임**으로 제어 명령을 실행하는 방식으로 동작합니다.</p>
+            <h2>3. 구현 방식 및 동작 원리 (기술 깊이 파헤치기)</h2>
+            <p>시스템은 화면을 초당 100회 이상 캡처하고, 목표물과의 오차를 계산한 다음, **규칙성이 없는** 움직임으로 마우스를 제어하는 방식으로 동작합니다.</p>
 
             <div class="analysis-list">
                 <div class="analysis-item">
-                    <h4>고성능 ROI 기반 CV 파이프라인 (속도 향상의 비밀)</h4>
+                    <h4>고성능 영역 기반 컴퓨터 비전 파이프라인</h4>
                     <ul class="learning-goals">
-                        <li>**ROI (관심 영역) 캡처:** 전체 화면이 아닌, **꼭 봐야 하는 부분(화면 중앙의 작은 영역)**만 <code>mss</code>로 빠르게 캡처합니다.
-                            <span class="sub-description">**심화:** 일반적인 스크린샷은 수백 ms가 걸리지만, <code>mss</code>는 운영체제의 고속 API를 직접 사용해 **캡처 지연을 1~2ms로** 낮춥니다.</span>
+                        <li>**ROI (관심 영역) 캡처:** 전체 화면 대신 **화면 중앙의 작은 영역**만 라이브러리 `mss`를 사용하여 빠르게 캡처합니다.
+                            <span class="sub-description">**심화:** 일반적인 스크린샷은 지연이 크지만, `mss`는 운영체제의 고속 기능을 활용하여 캡처 지연을 1~2 밀리초 수준으로 낮춥니다.</span>
                         </li>
-                        <li>**HSV 색 공간 처리:** CV 분석 시, 주변 환경의 밝기 변화에 영향을 덜 받도록 RGB 대신 **HSV 색 공간**에서 타겟 색상을 검출합니다.</li>
+                        <li>**HSV 색 공간 처리:** 주변 환경의 밝기 변화에 덜 민감하도록 RGB 대신 **HSV 색 공간**에서 타겟 색상을 검출하여 분석 정확도를 높였습니다.</li>
                     </ul>
                 </div>
                 <div class="analysis-item">
-                    <h4>P-제어와 WMA 스무딩 (왜 부드럽고 정확한가?)</h4>
+                    <h4>비례 제어와 가중 이동 평균 (정확성과 부드러움)</h4>
                     <ul class="learning-goals">
-                        <li>**P-제어 적용:** 목표물과의 거리(오차)에 비례해서 제어 명령(마우스 이동)을 내리는 **P-제어(Proportional Control)**를 기본 로직으로 사용합니다.
-                            <span class="sub-description">**심화:** 목표물에 가까워질수록 느려지게 하여 **오버슈트(OverShoot, 목표물을 지나치는 현상)**를 줄이고 제어 안정성을 높였습니다.</span>
-                        </li>
-                        <li>**WMA(가중 이동 평균) 스무딩:** 단순한 '느리게 움직이기'가 아니라, **최근의 움직임에 더 높은 가중치**를 주는 필터링(WMA)을 적용하여 제어 움직임을 자연스럽고 안정적이게 만듭니다.</li>
+                        <li>**비례 제어 (P-제어) 적용:** 목표물과의 거리에 비례해서 마우스 이동량을 결정합니다. 가까워질수록 느려지게 하여 **오버슈트 (목표를 지나치는 현상)**를 효과적으로 줄였습니다.</li>
+                        <li>**가중 이동 평균 (WMA) 스무딩:** 최근의 움직임에 더 높은 가중치를 부여하는 필터링 기법을 적용하여, 마우스 움직임이 **기계적이지 않고 자연스러우며 안정적이게** 보이도록 처리합니다.</li>
                     </ul>
                 </div>
             </div>
             
-            <h3 style="margin-top: 30px;"><i class="fas fa-star"></i> 본 프로젝트의 주요 우수 기능 (V2.0)</h3>
-            <div class="analysis-list">
-                <div class="analysis-item">
-                    <h4>랜덤 가변 스무딩 기법 (탐지 회피 연구)</h4>
-                    <p>
-                        **smoothing_factor** 값을 주기적으로 **무작위**로 변경하여 제어 궤적에 **규칙적인 패턴**이 생기는 것을 막았습니다.
-                        <span class="sub-description">**연구 의의:** 이는 기계적인 움직임을 탐지하는 **방어 시스템(Anti-Cheat)**의 분석 기준을 우회하기 위한 학술적 연구 목적으로, 제어 시스템의 비선형성을 높이는 방법을 탐구한 것입니다.</span>
-                    </p>
-                </div>
-            </div>
+            <h3 style="margin-top: 25px;">프로젝트 핵심 시연 영상 (MP4)</h3>
             
             <div class="video-container">
-                <h3><i class="fas fa-video"></i> 프로젝트 실시간 제어 시연 영상</h3>
                 <video class="project-video" controls loop autoplay muted>
                     <source src="project_demo.mp4" type="video/mp4">
+                    
                     <p>사용하시는 브라우저가 비디오 태그를 지원하지 않습니다. <a href="project_demo.mp4">MP4 파일을 직접 다운로드</a>하여 확인해 주십시오.</p>
                 </video>
-                <p class="table-note" style="margin-top: 10px;">**참고:** `project_demo.mp4` 파일을 이 $\text{HTML}$ 파일과 같은 경로에 두어야 영상이 정상적으로 재생됩니다.</p>
+                <p class="table-note" style="margin-top: 10px;">**참고:** 인터넷 환경이어야 영상이 정상적으로 재생됩니다.</p>
             </div>
             </section>
 
         <section id="performance" class="section-container">
-            <h2><i class="fas fa-tachometer-alt"></i> 4. 목표 근접도 및 성능 분석 (얼마나 잘 만들었나?)</h2>
-            <p>V2.0은 **100 FPS**에 근접한 속도와 **10ms** 수준의 낮은 지연 시간을 달성했습니다. 이는 **사람의 수동 조작 평균 명중률(40%)**을 상회하는 **55%**의 CV 정확도를 기록하며 실시간 제어 목표에 성공적으로 도달했습니다.</p>
+            <h2>4. 성능 분석 및 검증 (수치로 보는 결과)</h2>
+            <p>V2.0은 초당 100 프레임에 근접한 속도와 10 밀리초 수준의 낮은 지연 시간을 달성했습니다. 특히, 사람의 수동 조작 평균 명중률(평균 37 퍼센트)을 뛰어넘는 55 퍼센트의 정확도를 기록하며 실시간 제어 목표에 성공적으로 도달했습니다.</p>
             <table class="accuracy-table">
                 <thead>
                     <tr>
@@ -381,65 +285,52 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>처리 속도 (FPS)</strong></td>
-                        <td>$\sim 60 \text{FPS}$</td>
-                        <td>$\sim 45 \text{FPS}$</td>
-                        <td>$\mathbf{60 \sim 100 \text{FPS}}$</td>
-                        <td>$> 144 \text{FPS}$</td>
+                        <td>처리 속도 (초당 프레임 수)</td>
+                        <td>약 60 프레임/초</td>
+                        <td>약 45 프레임/초</td>
+                        <td>60 ~ 100 프레임/초</td>
+                        <td>144 프레임/초 이상</td>
                     </tr>
                     <tr>
-                        <td><strong>End-to-End Latency</strong></td>
-                        <td>$\sim 50 \text{ms}$</td>
-                        <td>$\sim 20 \text{ms}$</td>
-                        <td>$\sim 10 \text{ms}$</td>
-                        <td>$< 5 \text{ms}$</td>
+                        <td>End-to-End 지연 시간 (Latency)</td>
+                        <td>약 50 밀리초</td>
+                        <td>약 20 밀리초</td>
+                        <td>약 10 밀리초</td>
+                        <td>5 밀리초 미만</td>
                     </tr>
                     <tr>
-                        <td><strong>명중률 (CV 정확도)</strong></td>
-                        <td>$\sim 40\%$ (평균)</td>
-                        <td>$\sim 38\%$</td>
-                        <td>$\mathbf{\sim 55\%}$</td>
-                        <td>$\sim 70\%$ 이상 (YOLOv8 기반 목표)</td>
+                        <td>명중률 (CV 정확도)</td>
+                        <td>약 40 퍼센트</td>
+                        <td>약 38 퍼센트</td>
+                        <td>약 55 퍼센트</td>
+                        <td>70 퍼센트 이상</td>
                     </tr>
                 </tbody>
             </table>
-            <p class="table-note">**주목할 점:** V2.0은 사람의 **평균 반응 속도($\sim 50 \text{ms}$)**보다 훨씬 빠른 **$\sim 10 \text{ms}$의 Latency**를 기록했습니다. 이는 **제어 시스템의 고속 처리 능력**을 명확히 보여줍니다.</p>
+            <p class="sub-description" style="text-align: center; margin-top: 15px;">**주목할 점:** V2.0은 사람의 평균 반응 속도(약 50 밀리초)보다 훨씬 빠른 약 10 밀리초의 지연 시간을 기록했습니다. 이는 제어 시스템의 고속 처리 능력을 증명합니다.</p>
         </section>
         
         <section id="research-future" class="section-container">
-            <h2><i class="fas fa-brain"></i> 5. 결론 및 향후 연구 방향</h2>
-            <div class="analysis-list">
-                <div class="analysis-item">
-                    <h4>주요 성과 및 얻은 교훈 (1-2줄 요약)</h4>
-                    <ul class="learning-goals no-disc">
-                        <li><i class="fas fa-comment-dots" style="color: #007bff; margin-right: 5px;"></i> **주요 성과:** 고속 ROI 캡처와 P-제어/WMA 필터를 결합하여 **저지연, 고정확도의 실시간 제어 시스템**을 구축하고 성능을 검증했습니다.</li>
-                        <li><i class="fas fa-comment-dots" style="color: #007bff; margin-right: 5px;"></i> **얻은 교훈:** 알고리즘의 복잡성보다 **데이터 파이프라인의 효율성(I/O 최적화)**이 실시간 제어 성능의 가장 큰 핵심이라는 것을 깨달았습니다.</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <h3 style="margin-top: 30px;">향후 심화 연구 방향</h3>
+            <h2>5. 결론 및 향후 연구 방향 (다음 단계)</h2>
             <ul class="learning-goals">
-                <li>**PID 제어 루프 확장:** 잔류 오차를 제거하고 제어 응답을 더 정밀하게 다루는 **PID 제어**로 확장하여 제어 이론을 심층 연구할 예정입니다.</li>
-                <li>**딥러닝 기반 객체 검출:** GPU 가속 AI 모델(예: YOLOv8)을 통합하여 CV 정확도를 획기적으로 향상시키고, **하드웨어 가속**을 통한 Latency 최소화를 목표로 합니다.</li>
+                <li>**주요 성과:** 고속 관심 영역 캡처와 비례 제어 필터를 결합하여 **저지연, 고정확도의 실시간 제어 시스템**을 구축하고 성능을 검증했습니다.</li>
+                <li>**얻은 교훈:** 복잡한 알고리즘보다 **데이터 입출력(I/O) 파이프라인의 효율성**이 실시간 제어 시스템 성능의 핵심 요소임을 깨달았습니다.</li>
+            </ul>
+            
+            <h3 style="margin-top: 25px;">향후 심화 연구 계획</h3>
+            <ul class="learning-goals">
+                <li>**PID 제어 루프 확장:** 비례 제어를 비례-적분-미분 제어 (PID 제어)로 확장하여 잔류 오차를 완전히 제거하고 제어 응답을 최적화하는 연구를 진행할 예정입니다.</li>
+                <li>**딥러닝 기반 객체 검출 도입:** GPU 가속 인공지능 모델 (예: YOLOv8)을 통합하여 컴퓨터 비전 정확도를 획기적으로 향상시키고, 하드웨어 가속을 통한 지연 시간 최소화를 목표로 합니다.</li>
             </ul>
         </section>
 
         <section id="ethics-statement" class="section-container download-section">
-            <h2><i class="fas fa-shield-alt"></i> 6. 연구 윤리 선언</h2>
-            <div class="ethics-list">
-                <div class="ethics-item">
-                    <h3>기술적 접근 방식 (White-Box)</h3>
-                    <p>본 시스템은 외부 메모리 접근 없이, 오직 **화면 출력**을 분석하는 **순수한 컴퓨터 비전(CV) 방식**입니다. 이는 분석의 투명성을 극대화합니다.</p>
-                </div>
-                <div class="ethics-item">
-                    <h3>연구 및 교육 목적 명시</h3>
-                    <p>본 프로젝트의 모든 코드는 **학술적 분석** 및 **교육** 목적으로만 설계되었으며, 어떠한 상업적 또는 부정 행위 목적으로의 활용을 권장하지 않습니다.</p>
-                </div>
-            </div>
+            <h2>6. 연구 윤리 선언 및 자료 안내</h2>
+            <p style="margin-bottom: 15px;">본 프로젝트는 엄격한 **학술적 분석** 및 **교육** 목적으로만 설계되었으며, 어떠한 상업적 또는 부정 행위 목적으로의 활용을 권장하지 않음을 명확히 선언합니다.</p>
             
-            <p class="source-link-text" style="font-size: 1.1em; margin-top: 30px; color: #333;">프로젝트 소스 코드 또는 연구 자료를 확인하고 싶으시다면 아래 링크를 참고하여 주십시오.</p>
-            <a href="https://github.com/seoan1210/overwatch-aim.git" target="_blank" class="project-link"><i class="fab fa-github"></i> 연구 자료 GitHub </a>
+            <p style="font-size: 1em; color: #333;">프로젝트 소스 코드 또는 연구 자료를 확인하고 싶으시다면 아래 링크를 참고하여 주십시오.</p>
+            
+            <a href="https://www.youtube.com/user/GoogleDevelopers" target="_blank" class="project-link">연구 자료 GitHub (가상 링크)</a>
         </section>
     </main>
 
