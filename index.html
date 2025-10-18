@@ -4,37 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>교육용: 실시간 제어 시스템 개발 및 성능 분석 자료</title>
-    <link href="https://fonts.googleapis.com/css2?family=Malgun+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Malgun+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        /* --- 모바일 최적화 및 기본 설정 (폰 화면 맞춤형) --- */
+        /* --- 기본 설정 및 UI 개선 --- */
         body {
             font-family: 'Malgun Gothic', sans-serif;
-            background-color: #f0f0f0; /* 밝은 배경 */
-            color: #222222;
+            background-color: #f8f9fa; /* 배경색을 더 밝고 부드럽게 */
+            color: #212529; /* 짙은 텍스트 */
             margin: 0;
             padding: 0;
-            line-height: 1.5;
+            line-height: 1.6; /* 가독성을 위해 행간 늘림 */
             font-size: 16px;
         }
 
-        /* 헤더: 단순화 */
+        /* 헤더: 전문적이고 깔끔하게 */
         header {
             background-color: #ffffff;
-            padding: 30px 20px;
+            padding: 40px 20px;
             text-align: center;
-            border-bottom: 5px solid #0056b3; /* 진한 파란색으로 구분 */
+            border-bottom: 8px solid #007bff; /* 메인 색상으로 강력하게 강조 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 은은한 그림자 추가 */
         }
 
         .header-content h1 {
-            font-size: 1.8em; /* 모바일에서 적당한 크기 */
-            font-weight: 700;
-            margin: 0 0 5px 0;
-            color: #0056b3;
+            font-size: 2.2em; /* 크기 조정 */
+            font-weight: 800; /* 매우 굵게 */
+            margin: 0 0 8px 0;
+            color: #007bff; /* 메인 컬러 */
         }
 
         .header-content p {
-            font-size: 1em;
-            color: #555555;
+            font-size: 1.1em;
+            color: #6c757d; /* 서브 텍스트 색상 */
             margin: 0;
         }
 
@@ -43,140 +44,173 @@
             color: #007bff;
         }
 
-        /* 메인 컨텐츠 영역: 좁은 화면에 최적화 */
+        /* 메인 컨텐츠 영역 */
         main {
             width: 100%;
-            max-width: 700px; /* PC에서도 너무 커지지 않도록 최대 폭 제한 */
-            margin: 20px auto;
-            padding: 0 10px;
+            max-width: 800px; /* 최대 폭 약간 확장 */
+            margin: 30px auto;
+            padding: 0 15px;
         }
 
-        /* 섹션 컨테이너: 깔끔한 교육 자료 스타일 */
+        /* 섹션 컨테이너: 카드 디자인 적용 */
         .section-container {
             background-color: #ffffff;
-            padding: 15px;
-            margin-bottom: 15px;
-            border: 1px solid #dddddd;
-            border-radius: 6px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid #e9ecef; /* 테두리 색상 부드럽게 */
+            border-radius: 10px; /* 모서리 둥글게 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 카드 느낌을 위한 그림자 */
         }
 
+        /* 제목 스타일링 */
         h2 {
-            color: #0056b3;
-            font-size: 1.5em;
-            border-bottom: 2px solid #eeeeee;
-            padding-bottom: 8px;
+            color: #343a40; /* 어두운 색상으로 가독성 확보 */
+            font-size: 1.7em;
+            border-bottom: 3px solid #007bff; /* 핵심 색상으로 구분선 변경 */
+            padding-bottom: 10px;
             margin-top: 0;
-            margin-bottom: 15px;
-            font-weight: 700;
+            margin-bottom: 20px;
+            font-weight: 800;
         }
 
         h3 {
-            color: #333333;
-            font-size: 1.2em;
-            margin-top: 15px;
-            margin-bottom: 8px;
-            font-weight: 600;
+            color: #495057;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
         
         h4 {
             color: #007bff;
-            font-size: 1.1em;
+            font-size: 1.15em;
             margin-top: 15px;
             margin-bottom: 5px;
             font-weight: 600;
         }
 
+        /* 일반 텍스트 및 문단 */
+        p {
+            margin-bottom: 15px;
+        }
 
         /* 목록 스타일 */
         .learning-goals {
             list-style: disc;
-            padding-left: 20px;
+            padding-left: 25px;
             margin-top: 10px;
         }
+
+        .learning-goals li {
+            margin-bottom: 6px;
+        }
+
         .sub-description {
             font-size: 0.9em;
-            color: #777777;
+            color: #6c757d;
             margin-top: 5px;
             margin-bottom: 10px;
             display: block;
-            border-left: 3px solid #ccc;
-            padding-left: 10px;
+            border-left: 4px solid #adb5bd; /* 얇고 연한 구분선 */
+            padding-left: 12px;
         }
 
-        /* 테이블: 모바일 대응 */
+        /* 테이블 스타일링: 모바일 대응은 유지하면서 디자인 개선 */
         .tech-table, .accuracy-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
-            display: block; /* 모바일에서 표를 스크롤 가능하게 만듦 */
+            margin-top: 20px;
+            display: block;
             overflow-x: auto;
-            white-space: nowrap; /* 내용이 한 줄에 표시되도록 함 */
-        }
-        .tech-table thead, .accuracy-table thead {
-            display: table-header-group;
-        }
-        .tech-table th, .tech-table td, .accuracy-table th, .accuracy-table td {
-            padding: 10px;
-            border: 1px solid #dddddd;
-            text-align: center;
-            min-width: 80px; /* 셀 최소 너비 확보 */
-        }
-        .accuracy-table td:first-child {
-            text-align: left;
-        }
-
-        /* 코드 강조 (문자만 사용 요청에 따라 배경색만 사용) */
-        code {
-            font-family: monospace;
-            background-color: #f7f7f7;
-            padding: 1px 4px;
-            border-radius: 3px;
-            color: #d9534f;
-            font-weight: 600;
-            font-size: 0.95em;
+            white-space: nowrap;
+            border-radius: 4px; /* 테이블 모서리 둥글게 */
+            overflow: hidden; /* 둥근 모서리 적용을 위해 */
         }
         
-        /* 비디오 컨테이너: 중앙 정렬 및 반응형 비디오 */
+        .accuracy-table thead tr {
+            background-color: #007bff; /* 헤더 배경색 강조 */
+            color: #ffffff;
+        }
+        
+        .tech-table th, .accuracy-table th {
+            background-color: #e9ecef;
+            color: #495057;
+            font-weight: 700;
+        }
+
+        .tech-table td, .accuracy-table td {
+            padding: 12px;
+            border: 1px solid #dee2e6; /* 연한 테두리 */
+            text-align: center;
+        }
+        .accuracy-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa; /* 줄무늬 배경 */
+        }
+        .accuracy-table tbody tr:hover {
+            background-color: #e2f2ff; /* 호버 효과 */
+        }
+
+
+        /* 코드 강조 */
+        code {
+            font-family: monospace;
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #dc3545; /* 강조색 */
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        /* 비디오 컨테이너 */
         .video-container {
             margin-top: 20px;
             text-align: center;
+            padding: 15px;
+            background-color: #f1f7fe; /* 비디오 영역 배경색 */
+            border-radius: 8px;
+            border: 1px dashed #ced4da; /* 점선 테두리 */
         }
         .project-video {
             width: 100%;
-            max-width: 500px;
+            max-width: 600px; /* PC에서 최대 크기 조정 */
             height: auto;
-            border-radius: 4px;
+            border-radius: 6px;
         }
-
 
         /* 다운로드 섹션 및 링크 */
         .download-section {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             background-color: #eaf3ff;
             border: 1px solid #cceeff;
-            border-radius: 6px;
+            border-radius: 10px;
         }
         
         .project-link {
-            display: block; /* 모바일에서 블록 형태로 전체 너비 사용 */
-            background-color: #333333;
+            display: block;
+            background-color: #007bff; /* 메인 컬러 사용 */
             color: #ffffff;
-            padding: 12px 20px;
+            padding: 15px 25px;
             text-decoration: none;
-            font-weight: 600;
-            border-radius: 4px;
-            margin-top: 15px;
-            font-size: 1em;
+            font-weight: 700;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+        .project-link:hover {
+            background-color: #0056b3;
         }
         
         /* 푸터 */
         footer {
             text-align: center;
-            padding: 15px 0;
-            border-top: 1px solid #cccccc;
+            padding: 20px 0;
+            border-top: 1px solid #dee2e6;
             color: #999999;
-            font-size: 0.8em;
+            font-size: 0.85em;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -243,8 +277,8 @@
                 <div class="analysis-item">
                     <h4>고성능 영역 기반 컴퓨터 비전 파이프라인</h4>
                     <ul class="learning-goals">
-                        <li>**ROI (관심 영역) 캡처:** 전체 화면 대신 **화면 중앙의 작은 영역**만 라이브러리 `mss`를 사용하여 빠르게 캡처합니다.
-                            <span class="sub-description">**심화:** 일반적인 스크린샷은 지연이 크지만, `mss`는 운영체제의 고속 기능을 활용하여 캡처 지연을 1~2 밀리초 수준으로 낮춥니다.</span>
+                        <li>**ROI (관심 영역) 캡처:** 전체 화면 대신 **화면 중앙의 작은 영역**만 라이브러리 <code>mss</code>를 사용하여 빠르게 캡처합니다.
+                            <span class="sub-description">**심화:** 일반적인 스크린샷은 지연이 크지만, <code>mss</code>는 운영체제의 고속 기능을 활용하여 캡처 지연을 1~2 밀리초 수준으로 낮춥니다.</span>
                         </li>
                         <li>**HSV 색 공간 처리:** 주변 환경의 밝기 변화에 덜 민감하도록 RGB 대신 **HSV 색 공간**에서 타겟 색상을 검출하여 분석 정확도를 높였습니다.</li>
                     </ul>
@@ -266,13 +300,14 @@
                     
                     <p>사용하시는 브라우저가 비디오 태그를 지원하지 않습니다. <a href="project_demo.mp4">MP4 파일을 직접 다운로드</a>하여 확인해 주십시오.</p>
                 </video>
-                <p class="table-note" style="margin-top: 10px;">**참고:** 인터넷 환경이어야 영상이 정상적으로 재생됩니다.</p>
+                <p class="sub-description" style="text-align: center; margin-top: 10px;">**참고:** 인터넷 환경에서 영상이 정상적으로 재생됩니다.</p>
             </div>
             </section>
 
         <section id="performance" class="section-container">
             <h2>4. 성능 분석 및 검증 (수치로 보는 결과)</h2>
-            <p>V2.0은 초당 100 프레임에 근접한 속도와 10 밀리초 수준의 낮은 지연 시간을 달성했습니다. 특히, 사람의 수동 조작 평균 명중률(평균 37 퍼센트)을 뛰어넘는 55 퍼센트의 정확도를 기록하며 실시간 제어 목표에 성공적으로 도달했습니다.</p>
+            <p>V2.0은 초당 100 프레임에 근접한 속도와 10 밀리초 수준의 낮은 지연 시간을 달성했습니다. 특히, 사람의 수동 조작 평균 명중률(40 퍼센트)을 뛰어넘는 55 퍼센트의 정확도를 기록하며 실시간 제어 목표에 성공적으로 도달했습니다.</p>
+            
             <table class="accuracy-table">
                 <thead>
                     <tr>
@@ -330,12 +365,12 @@
             
             <p style="font-size: 1em; color: #333;">프로젝트 소스 코드 또는 연구 자료를 확인하고 싶으시다면 아래 링크를 참고하여 주십시오.</p>
             
-            <a href="https://www.youtube.com/user/GoogleDevelopers" target="_blank" class="project-link">연구 자료 GitHub (가상 링크)</a>
+            <a href="https://github.com/seoan1210/overwatch-aim.git" target="_blank" class="project-link">연구 자료 GitHub </a>
         </section>
     </main>
 
     <footer>
-        <p>Project by seoan1210 | © 2025 Advanced Control System Research. | All Rights Reserved.</p>
+        <p>Project by seoan1210 | &copy; 2025 Advanced Control System Research. | All Rights Reserved.</p>
     </footer>
 
 </body>
