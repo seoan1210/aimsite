@@ -3,53 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>실시간 시스템 제어 및 CV 분석 프로젝트: 연구 발표 심화 버전</title>
+    <title>실시간 시스템 제어 및 CV 분석 프로젝트: 연구 발표 심화 버전 (영상 포함)</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Malgun+Gothic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* --- 기본 리셋 및 폰트 적용 (Simplicity First!) --- */
+        /* --- 기본 리셋 및 폰트 적용 --- */
         body {
             font-family: 'Inter', 'Malgun Gothic', sans-serif;
-            background-color: #f7f7f7; /* 매우 밝은 배경 */
-            color: #333333; /* 짙은 텍스트 */
+            background-color: #f7f7f7;
+            color: #333333;
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
-
-        /* 헤더 */
         header {
             background-color: #ffffff;
             padding: 60px 0 40px;
             text-align: center;
-            border-bottom: 3px solid #007bff; /* 심플한 파란색 라인 강조 */
+            border-bottom: 3px solid #007bff;
         }
-
         .header-content h1 {
             font-size: 3em;
             font-weight: 700;
             margin-bottom: 5px;
             color: #007bff;
         }
-
         .header-content p {
             font-size: 1.1em;
             color: #666666;
         }
-
         .highlight {
             font-weight: 600;
             color: #007bff;
         }
-
-        /* 메인 컨텐츠 영역 */
         main {
             max-width: 800px;
             margin: 40px auto;
             padding: 0 20px;
         }
-
-        /* 섹션 컨테이너 - 박스 그림자 제거 및 미니멀 디자인 적용 */
         .section-container {
             background-color: #ffffff;
             padding: 30px;
@@ -57,7 +48,6 @@
             border: 1px solid #e0e0e0;
             border-radius: 8px;
         }
-
         h2 {
             color: #333333;
             font-size: 1.8em;
@@ -67,7 +57,6 @@
             margin-bottom: 20px;
             font-weight: 700;
         }
-
         h3 {
             color: #333333;
             font-size: 1.3em;
@@ -75,8 +64,6 @@
             margin-bottom: 10px;
             font-weight: 600;
         }
-
-        /* 일반 목록 스타일 */
         .learning-goals {
             list-style: disc;
             padding-left: 20px;
@@ -91,7 +78,6 @@
              list-style: none;
              padding-left: 0;
         }
-
         .sub-description {
             font-size: 0.9em;
             color: #777777;
@@ -101,31 +87,24 @@
             border-left: 3px solid #ccc;
             padding-left: 10px;
         }
-
-
-        /* 🛡️ 윤리 섹션 스타일 (연구 목적으로 변경) */
         .ethics-list {
             display: flex;
             gap: 20px;
             justify-content: space-between;
         }
-
         .ethics-item {
             flex: 1;
-            background: #e6f7ff; /* 산뜻한 파란색 계열 배경 */
+            background: #e6f7ff;
             padding: 20px;
             border-radius: 6px;
             border-left: 4px solid #007bff;
         }
-
         .ethics-item h3 {
             color: #007bff;
             font-size: 1.2em;
             margin-top: 0;
             margin-bottom: 5px;
         }
-        
-        /* ⚙️ 기술 스택 목록 스타일 */
         .tech-table {
             width: 100%;
             border-collapse: collapse;
@@ -145,14 +124,11 @@
              font-weight: 600;
              color: #007bff;
         }
-
-        /* 🔎 코드 분석 목록 디자인 */
         .analysis-list {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-
         .analysis-item {
             background: #ffffff;
             padding: 20px;
@@ -161,7 +137,6 @@
             border-left: 4px solid #007bff;
             text-align: left;
         }
-
         .analysis-item h4 {
             color: #007bff;
             font-size: 1.1em;
@@ -169,8 +144,6 @@
             margin-bottom: 5px;
             font-weight: 600;
         }
-        
-        /* 코드 강조 */
         code {
             font-family: monospace;
             background-color: #e9ecef;
@@ -180,6 +153,25 @@
             font-weight: 600;
         }
 
+        /* 비디오 컨테이너 스타일 */
+        .video-container {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            background: #ffffff;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .video-container h3 {
+            color: #007bff;
+        }
+        .project-video {
+            width: 100%;
+            max-width: 700px; /* 최대 크기 지정 */
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
 
         /* 🎯 명중률 테이블 */
         .accuracy-table {
@@ -216,16 +208,16 @@
         }
         .accuracy-table tbody tr td:nth-child(2) {
             font-weight: 700;
-            color: #333; /* 사람의 값 강조 */
+            color: #333;
         }
-        .table-note { /* 테이블 하단 노트 텍스트 */
+        .table-note {
             font-size: 0.9em;
             color: #999999;
             text-align: center;
             margin-top: 15px;
         }
 
-        /* 🚀 다운로드 섹션 (정리됨) */
+        /* 🚀 다운로드 섹션 */
         .download-section {
             text-align: center;
             padding: 30px;
@@ -363,7 +355,16 @@
                     </p>
                 </div>
             </div>
-        </section>
+            
+            <div class="video-container">
+                <h3><i class="fas fa-video"></i> 프로젝트 실시간 제어 시연 영상</h3>
+                <video class="project-video" controls loop autoplay muted>
+                    <source src="project_demo.mp4" type="video/mp4">
+                    <p>사용하시는 브라우저가 비디오 태그를 지원하지 않습니다. <a href="project_demo.mp4">MP4 파일을 직접 다운로드</a>하여 확인해 주십시오.</p>
+                </video>
+                <p class="table-note" style="margin-top: 10px;">**참고:** `project_demo.mp4` 파일을 이 $\text{HTML}$ 파일과 같은 경로에 두어야 영상이 정상적으로 재생됩니다.</p>
+            </div>
+            </section>
 
         <section id="performance" class="section-container">
             <h2><i class="fas fa-tachometer-alt"></i> 4. 목표 근접도 및 성능 분석 (얼마나 잘 만들었나?)</h2>
