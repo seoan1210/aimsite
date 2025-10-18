@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Control System: 실시간 컴퓨터 비전 및 제어 시스템 분석</title>
+    <title>실시간 시스템 제어 및 CV 분석 프로젝트: 연구 발표</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Malgun+Gothic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -65,7 +65,7 @@
             padding-bottom: 10px;
             margin-top: 0;
             margin-bottom: 20px;
-            font-weight: 700; /* 제목 강조 */
+            font-weight: 700;
         }
 
         h3 {
@@ -85,8 +85,13 @@
         }
         .learning-goals li {
             margin-bottom: 8px;
-            color: #444444; /* 텍스트 색상 통일 */
+            color: #444444;
         }
+        .learning-goals.no-disc {
+             list-style: none;
+             padding-left: 0;
+        }
+
 
         /* 상세 텍스트 추가 */
         .detail-text {
@@ -125,29 +130,24 @@
         }
         
         /* ⚙️ 기술 스택 목록 스타일 */
-        .tech-list {
-            display: flex;
-            gap: 20px;
-            justify-content: space-between;
-            text-align: center;
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
             margin-top: 20px;
         }
-        .tech-item {
-            flex: 1;
-            background: #f0f8ff;
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid #cceeff;
+        .tech-table th, .tech-table td {
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
         }
-        .tech-item h3 {
+        .tech-table th {
+            background-color: #f0f8ff;
             color: #333333;
-            font-size: 1em;
-            margin-bottom: 5px;
             font-weight: 700;
         }
-        .tech-item p {
-            color: #007bff;
-            font-weight: 600;
+        .tech-table td {
+             font-weight: 600;
+             color: #007bff;
         }
 
         /* 🔎 코드 분석 목록 디자인 */
@@ -158,7 +158,7 @@
         }
 
         .analysis-item {
-            background: #ffffff; /* 흰색 유지 */
+            background: #ffffff;
             padding: 20px;
             border-radius: 6px;
             border: 1px solid #e0e0e0;
@@ -166,22 +166,24 @@
             text-align: left;
         }
 
-        .analysis-item h3 {
+        .analysis-item h4 {
             color: #007bff;
-            font-size: 1.2em;
+            font-size: 1.1em;
             margin-top: 0;
             margin-bottom: 5px;
+            font-weight: 600;
         }
-
-        /* 코드 강조 텍스트 */
-        .code-highlight {
+        
+        /* 마크다운 스타일 반영: 코드 강조 */
+        code {
             font-family: monospace;
             background-color: #e9ecef;
             padding: 2px 5px;
             border-radius: 3px;
-            color: #d9534f; /* 붉은 계열로 코드 강조 */
+            color: #d9534f;
             font-weight: 600;
         }
+
 
         /* 🎯 명중률 테이블 */
         .accuracy-table {
@@ -221,7 +223,7 @@
         .download-section {
             text-align: center;
             padding: 30px;
-            background-color: #f0f8ff; /* 연한 파란색 배경으로 강조 */
+            background-color: #f0f8ff;
             border: 1px solid #cceeff;
             border-radius: 8px;
         }
@@ -242,17 +244,6 @@
         .project-link:hover {
             background-color: #555555;
         }
-        
-        .warning-text {
-            color: #d9534f;
-            margin-top: 30px;
-            font-size: 0.9em;
-            padding: 15px;
-            border: 1px solid #d9534f;
-            border-radius: 4px;
-            background: #fef4f4;
-            text-align: left;
-        }
 
         /* 푸터 */
         footer {
@@ -263,7 +254,7 @@
             font-size: 0.8em;
         }
 
-        /* 반응형 디자인 (유지) */
+        /* 반응형 디자인 */
         @media (max-width: 768px) {
             main { max-width: 95%; }
             .ethics-list { flex-direction: column; }
@@ -276,7 +267,7 @@
 
     <header>
         <div class="header-content">
-            <h1>실시간 시스템 제어 및 $\text{CV}$ 분석 프로젝트</h1>
+            <h1>실시간 시스템 제어 및 $\text{CV}$ 분석 프로젝트 발표 자료</h1>
             <p>고성능 제어 시스템 설계를 위한 <span class="highlight">컴퓨터 비전 심화 분석</span> 연구 보고서</p>
             <p class="highlight" style="font-size: 1.1em; margin-top: 15px;"><i class="fas fa-flask"></i> 본 프로젝트는 실시간 제어 및 AI 로직 학습만을 목적으로 합니다. (순수 연구용)</p>
         </div>
@@ -284,83 +275,92 @@
 
     <main>
         <section id="project-overview" class="section-container">
-            <h2><i class="fas fa-rocket"></i> 프로젝트 개요 및 동기 (Why)</h2>
+            <h2><i class="fas fa-rocket"></i> 1. 프로젝트 개요 및 동기 (Why We Built It)</h2>
             <p>이 프로젝트는 **컴퓨터 비전 ($\text{CV}$) 기술 학습**과 **사이버 보안 메커니즘** 이해를 목표로 하는 **비디오 피드백 루프**의 공학적 분석 도구입니다.</p>
-            <p>궁극적인 목표는 **Hard Real-Time System** 설계 시 필요한 **저지연 $\text{I/O}$ 제어** 및 **프레임 동기화** 문제를 코드로 구현하고 난이도를 확인하는 것이었습니다.</p>
+            <p>궁극적인 목표는 **Hard Real-Time System** 설계 시 필요한 **저지연 $\text{I/O}$ 제어** 및 **프레임 동기화** 문제를 코드로 구현하고 난이도를 실질적으로 확인하는 것이었습니다.</p>
 
             <h3>주요 기술 학습 목표</h3>
-            <div class="tech-list">
-                <div class="tech-item">
-                    <h3>핵심 라이브러리</h3>
-                    <p>Python ($\text{OpenCV}$, $\text{mss}$, $\text{PyQt5}$)</p>
-                </div>
-                <div class="tech-item">
-                    <h3>제어 이론</h3>
-                    <p>$\text{P}$-제어, 가중 이동 평균 ($\text{WMA}$) 필터링</p>
-                </div>
-                <div class="tech-item">
-                    <h3>보안적 관점</h3>
-                    <p>탐지 회피 기법 연구 및 안티 치트 시스템 분석</p>
-                </div>
-            </div>
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>기술 요소</th>
+                        <th>핵심 내용</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>핵심 라이브러리</td>
+                        <td>Python ($\text{OpenCV}$, $\text{mss}$, $\text{PyQt5}$)</td>
+                    </tr>
+                    <tr>
+                        <td>제어 이론</td>
+                        <td>$\text{P}$-제어, 가중 이동 평균 ($\text{WMA}$) 필터링</td>
+                    </tr>
+                    <tr>
+                        <td>보안적 관점</td>
+                        <td>탐지 회피 기법 연구 및 안티 치트 시스템 분석</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <section id="system-architecture" class="section-container">
-            <h2><i class="fas fa-sitemap"></i> 시스템 아키텍처 및 구조 (What Structure)</h2>
-            <p>시스템은 **데이터 수집 ($\text{CV}$), 로직 처리 (제어), $\text{GUI}$ ($\text{I/O}$)**의 세 가지 독립적인 모듈로 분리되어 병렬 처리됩니다. 이는 $\text{CPU}$ 리소스를 효율적으로 분배하고 실시간 응답성을 극대화하기 위함입니다.</p>
+            <h2><i class="fas fa-sitemap"></i> 2. 시스템 아키텍처 및 구조 (What Structure)</h2>
+            <p>시스템은 **데이터 수집 ($\text{CV}$), 로직 처리 (제어), $\text{GUI}$ ($\text{I/O}$)**의 세 가지 독립적인 모듈로 분리되어 **병렬 처리**됩니다.</p>
 
             <h3>핵심 구성 요소</h3>
             <ul class="learning-goals">
                 <li>**데이터 처리/제어 ($\text{Detector}$ Thread):** 화면 캡처, $\text{OpenCV}$ 분석, **마우스 제어 명령** 전달을 담당하는 핵심 고속 스레드.</li>
-                <li>**$\text{GUI}$ ($\text{DetectionViewer}$):** 사용자가 **설정값**을 변경하고 시스템 상태를 모니터링할 수 있는 $\text{PyQt5}$ 기반 인터페이스.</li>
-                <li>**데이터 동기화 ($\text{Signal/Slot}$):** $\text{GUI}$와 제어 스레드 간에 데이터(예: 스무딩 값, 활성화 상태)를 **안전하게** 주고받기 위한 통신 방식 구현.</li>
+                <li>**$\text{GUI}$ ($\text{DetectionViewer}$):** 사용자가 **설정값**을 변경하고 시스템 상태를 모니터링하는 $\text{PyQt5}$ 기반 인터페이스.</li>
+                <li>**데이터 동기화 ($\text{Signal/Slot}$):** $\text{GUI}$와 제어 스레드 간에 데이터를 **안전하게** 주고받는 $\text{PyQt5}$ 통신 방식 구현.</li>
             </ul>
         </section>
 
         <section id="code-analysis" class="section-container">
-            <h2><i class="fas fa-code"></i> 구현 방식 및 동작 원리 (How We Built & Works)</h2>
+            <h2><i class="fas fa-code"></i> 3. 구현 방식 및 동작 원리 (How We Built & Works)</h2>
             <p>프로젝트의 동작은 **고속 $\text{CV}$ 파이프라인**을 통해 타겟의 오차를 추출하고, 이를 **제어 명령어**로 변환하여 $\text{OS}$에 전달하는 방식으로 이루어집니다.</p>
 
             <div class="analysis-list">
                 <div class="analysis-item">
-                    <h3>1. 고성능 $\text{ROI}$ 기반 화면 캡처 및 전처리</h3>
-                    <p>
-                        **$\text{mss}$**를 사용하여 화면 중앙의 **관심 영역 ($\text{ROI}$)**만 캡처하여 **$\text{CPU}$ 부하를 최소화**하고, $\text{BGR}$ 이미지를 **$\text{HSV}$ 색 공간**으로 변환하여 안정적인 색상 기반 감지를 가능하게 했습니다.
-                    </p>
+                    <h4>고성능 $\text{ROI}$ 기반 $\text{CV}$ 파이프라인</h4>
+                    <ul class="learning-goals">
+                        <li>**화면 캡처:** <code>mss</code>를 사용하여 화면 중앙의 **관심 영역 ($\text{ROI}$)**만 캡처하여 **$\text{CPU}$ 부하를 최소화**했습니다.</li>
+                        <li>**이미지 처리:** $\text{BGR}$ 이미지를 $\text{HSV}$ 색 공간으로 변환하고, <code>cv2.inRange</code>로 이진 마스크를 얻은 후 <code>cv2.findContours</code>로 타겟 윤곽선을 추출합니다.</li>
+                    </ul>
                 </div>
                 <div class="analysis-item">
-                    <h3>2. 객체 추출 및 $\text{P}$-제어 적용 (동작 확인)</h3>
-                    <p>
-                        **$\text{cv2.inRange}$**로 이진 마스크를 얻고 **$\text{cv2.findContours}$**로 윤곽선을 추출합니다. 추출된 타겟의 중심과 화면 중심 간 오차를 **$\text{P}$-제어**의 입력으로 사용하여 마우스 이동량을 계산합니다. 결과는 $\text{PyQt5}$ **오버레이**를 통해 시각적으로 확인했습니다.
-                    </p>
+                    <h4>제어 및 동작 확인</h4>
+                    <ul class="learning-goals">
+                        <li>**제어 로직:** 추출된 타겟 중심과 화면 중심 간 오차를 **$\text{P}$-제어**의 입력으로 사용하여 마우스 이동량을 계산합니다.</li>
+                        <li>**확인:** $\text{PyQt5}$ **오버레이** 창을 통해 최종 조준 지점을 시각적으로 표시하여 정확성을 실시간으로 확인했습니다.</li>
+                    </ul>
                 </div>
             </div>
             
             <h3 style="margin-top: 30px;"><i class="fas fa-star"></i> 너가 봐도 잘 만든 주요 기능 $\text{V}2.0$</h3>
             <div class="analysis-list">
                 <div class="analysis-item">
-                    <h3>가변형 타겟 조준점 ($\text{Target Ratio}$)</h3>
+                    <h4>가변형 타겟 조준점 ($\text{Target Ratio}$)</h4>
                     <p>
                         타겟 바운딩 박스의 **$\text{Y}$축 비율** ($\text{0.20}$ = 머리, $\text{0.50}$ = 몸통 등)을 $\text{GUI}$에서 설정하여 조준점을 정교하게 조정할 수 있도록 구현했습니다.
                     </p>
                 </div>
                 <div class="analysis-item">
-                    <h3>랜덤 가변 스무딩 기법</h3>
+                    <h4>랜덤 가변 스무딩 기법</h4>
                     <p>
-                        **$\text{smoothing\_factor}$**를 $5$초마다 **랜덤하게** 변경하여 (예: $0.10 \sim 0.35$ 범위), 제어 움직임의 **기계적인 패턴을 깨고** 비선형성을 부여했습니다.
+                        **$\text{smoothing\_factor}$**를 $5$초마다 **랜덤하게** 변경하여 (예: $0.10 \sim 0.35$ 범위), 제어 움직임의 **기계적인 패턴을 깨고** 비선형성을 부여하는 고급 우회 기법을 구현했습니다.
                     </p>
                 </div>
             </div>
         </section>
 
         <section id="performance" class="section-container">
-            <h2><i class="fas fa-tachometer-alt"></i> 목표 근접도 및 성능 분석</h2>
-            <p>이 프로젝트는 **$\text{ROI}$ 캡처 최적화**와 **WMA 기반 스무딩**을 통해 초기 목표였던 **안정적인 실시간 제어** 목표에 크게 근접했습니다.</p>
+            <h2><i class="fas fa-tachometer-alt"></i> 4. 목표 근접도 및 성능 분석</h2>
+            <p>이 프로젝트는 **$\text{ROI}$ 캡처 최적화**와 **$\text{WMA}$ 기반 스무딩**을 통해 초기 목표였던 **안정적인 실시간 제어** 목표에 크게 근접했습니다.</p>
             <table class="accuracy-table">
                 <thead>
                     <tr>
                         <th>시스템 요소</th>
-                        <th>버전 $\text{V}1.0$ (초기)</th>
                         <th>버전 $\text{V}2.0$ (현재)</th>
                         <th>$\text{V}3.0$ 목표 (연구)</th>
                     </tr>
@@ -368,25 +368,21 @@
                 <tbody>
                     <tr>
                         <td><strong>처리 속도 ($\text{FPS}$)</strong></td>
-                        <td>$\sim 45 \text{FPS}$</td>
                         <td>$\mathbf{60 \sim 100 \text{FPS}}$</td>
                         <td>$> 144 \text{FPS}$</td>
                     </tr>
                     <tr>
                         <td><strong>$\text{End-to-End Latency}$</strong></td>
-                        <td>$\sim 20 \text{ms}$</td>
                         <td>$\sim 10 \text{ms}$</td>
                         <td>$< 5 \text{ms}$</td>
                     </tr>
                     <tr>
                         <td><strong>제어 안정성 ($\text{Overshoot}$)</strong></td>
-                        <td>높음</td>
                         <td>**중간 (WMA로 개선)**</td>
                         <td>낮음 ($\text{PID}$ 또는 $\text{EKF}$ 도입)</td>
                     </tr>
                     <tr>
                         <td><strong>$\text{CV}$ 정확도 ($\text{Color-Based}$)</strong></td>
-                        <td>$\sim 38\%$</td>
                         <td>$\mathbf{\sim 55\%}$</td>
                         <td>$\sim 70\%$ 이상 ($\text{YOLOv}8$ 기반 목표)</td>
                     </tr>
@@ -396,13 +392,13 @@
         </section>
         
         <section id="research-future" class="section-container">
-            <h2><i class="fas fa-brain"></i> 느낀점 및 배운점</h2>
+            <h2><i class="fas fa-brain"></i> 5. 느낀점 및 배운점</h2>
             <div class="analysis-list">
                 <div class="analysis-item">
-                    <h3>느낀점 및 배운점 요약</h3>
-                    <ul class="learning-goals" style="list-style-type: none; padding-left: 0;">
-                        <li><i class="fas fa-comment-dots" style="color: #007bff;"></i> **느낀점:** 실시간 프로젝트에서는 $\text{CPU}$ 부하 최소화 ($\text{ROI}$ 캡처)가 알고리즘의 복잡성만큼이나 중요하다는 것을 깨달았다.</li>
-                        <li><i class="fas fa-comment-dots" style="color: #007bff;"></i> **배운점:** $\text{PyQt}5$의 $\text{Signal/Slot}$ 메커니즘을 통해 멀티스레딩 환경에서 데이터를 안전하게 교환하는 방법을 숙달했다.</li>
+                    <h4>느낀점 및 배운점 요약</h4>
+                    <ul class="learning-goals no-disc">
+                        <li><i class="fas fa-comment-dots" style="color: #007bff; margin-right: 5px;"></i> **느낀점:** 실시간 프로젝트에서는 $\text{CPU}$ 부하 최소화 ($\text{ROI}$ 캡처)가 알고리즘의 복잡성만큼이나 중요하다는 것을 깨달았다.</li>
+                        <li><i class="fas fa-comment-dots" style="color: #007bff; margin-right: 5px;"></i> **배운점:** $\text{PyQt5}$의 $\text{Signal/Slot}$ 메커니즘을 통해 멀티스레딩 환경에서 데이터를 안전하게 교환하는 방법을 숙달했다.</li>
                     </ul>
                 </div>
             </div>
@@ -415,7 +411,7 @@
         </section>
 
         <section id="ethics-statement" class="section-container download-section">
-            <h2><i class="fas fa-shield-alt"></i> 연구 윤리 선언 및 결론</h2>
+            <h2><i class="fas fa-shield-alt"></i> 6. 연구 윤리 선언 및 결론</h2>
             <div class="ethics-list">
                 <div class="ethics-item">
                     <h3>기술적 접근 방식 ($\text{White-Box}$)</h3>
