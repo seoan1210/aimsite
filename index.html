@@ -7,66 +7,97 @@
     <link href="https://fonts.googleapis.com/css2?family=Malgun+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         /* --- 기본 설정 및 UI 개선 --- */
-        body {
-            font-family: 'Malgun Gothic', sans-serif;
-            background-color: #f8f9fa; /* 배경색을 더 밝고 부드럽게 */
-            color: #212529; /* 짙은 텍스트 */
-            margin: 0;
-            padding: 0;
-            line-height: 1.6; /* 가독성을 위해 행간 늘림 */
-            font-size: 16px;
+        :root {
+            --bg: #f8f9fa;
+            --text: #212529;
+            --accent: #007bff;
+            --card: #ffffff;
+            --subtext: #6c757d;
+        }
+        [data-theme="dark"] {
+            --bg: #121212;
+            --text: #e9ecef;
+            --accent: #3399ff;
+            --card: #1f1f1f;
+            --subtext: #adb5bd;
         }
 
-        /* 헤더: 전문적이고 깔끔하게 */
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        /* 헤더 */
         header {
-            background-color: #ffffff;
+            background-color: var(--card);
             padding: 40px 20px;
             text-align: center;
-            border-bottom: 8px solid #007bff; /* 메인 색상으로 강력하게 강조 */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 은은한 그림자 추가 */
+            border-bottom: 8px solid var(--accent);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         .header-content h1 {
-            font-size: 2.2em; /* 크기 조정 */
-            font-weight: 800; /* 매우 굵게 */
+            font-size: 2.2em;
+            font-weight: 800;
             margin: 0 0 8px 0;
-            color: #007bff; /* 메인 컬러 */
+            color: var(--accent);
         }
 
         .header-content p {
             font-size: 1.1em;
-            color: #6c757d; /* 서브 텍스트 색상 */
+            color: var(--subtext);
             margin: 0;
         }
 
-        .highlight {
-            font-weight: 700;
-            color: #007bff;
+        /* 다크 모드 버튼 */
+        #themeToggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: var(--accent);
+            transition: 0.3s;
+            z-index: 1000;
         }
+        #themeToggle:hover { transform: rotate(20deg); }
 
-        /* 메인 컨텐츠 영역 */
         main {
             width: 100%;
-            max-width: 800px; /* 최대 폭 약간 확장 */
+            max-width: 800px;
             margin: 30px auto;
             padding: 0 15px;
         }
 
-        /* 섹션 컨테이너: 카드 디자인 적용 */
         .section-container {
-            background-color: #ffffff;
+            background-color: var(--card);
             padding: 25px;
             margin-bottom: 25px;
-            border: 1px solid #e9ecef; /* 테두리 색상 부드럽게 */
-            border-radius: 10px; /* 모서리 둥글게 */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 카드 느낌을 위한 그림자 */
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        /* 제목 스타일링 */
+        .section-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         h2 {
-            color: #343a40; /* 어두운 색상으로 가독성 확보 */
+            color: #343a40;
             font-size: 1.7em;
-            border-bottom: 3px solid #007bff; /* 핵심 색상으로 구분선 변경 */
+            border-bottom: 3px solid var(--accent);
             padding-bottom: 10px;
             margin-top: 0;
             margin-bottom: 20px;
@@ -80,105 +111,54 @@
             margin-bottom: 10px;
             font-weight: 700;
         }
-        
+
         h4 {
-            color: #007bff;
+            color: var(--accent);
             font-size: 1.15em;
             margin-top: 15px;
             margin-bottom: 5px;
             font-weight: 600;
         }
 
-        /* 일반 텍스트 및 문단 */
-        p {
-            margin-bottom: 15px;
-        }
-
-        /* 목록 스타일 */
-        .learning-goals {
-            list-style: disc;
-            padding-left: 25px;
-            margin-top: 10px;
-        }
-
-        .learning-goals li {
-            margin-bottom: 6px;
-        }
-
+        p { margin-bottom: 15px; }
+        ul { padding-left: 25px; }
+        .learning-goals li { margin-bottom: 6px; }
         .sub-description {
             font-size: 0.9em;
-            color: #6c757d;
+            color: var(--subtext);
             margin-top: 5px;
             margin-bottom: 10px;
             display: block;
-            border-left: 4px solid #adb5bd; /* 얇고 연한 구분선 */
+            border-left: 4px solid #adb5bd;
             padding-left: 12px;
         }
 
-        /* 테이블 스타일링: 모바일 대응은 유지하면서 디자인 개선 */
-        .tech-table, .accuracy-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            display: block;
-            overflow-x: auto;
-            white-space: nowrap;
-            border-radius: 4px; /* 테이블 모서리 둥글게 */
-            overflow: hidden; /* 둥근 모서리 적용을 위해 */
-        }
-        
-        .accuracy-table thead tr {
-            background-color: #007bff; /* 헤더 배경색 강조 */
-            color: #ffffff;
-        }
-        
-        .tech-table th, .accuracy-table th {
-            background-color: #e9ecef;
-            color: #495057;
-            font-weight: 700;
-        }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #dee2e6; padding: 12px; text-align: center; }
+        th { background-color: #e9ecef; font-weight: 700; }
+        tbody tr:nth-child(even) { background-color: #f8f9fa; }
+        tbody tr:hover { background-color: #e2f2ff; }
 
-        .tech-table td, .accuracy-table td {
-            padding: 12px;
-            border: 1px solid #dee2e6; /* 연한 테두리 */
-            text-align: center;
-        }
-        .accuracy-table tbody tr:nth-child(even) {
-            background-color: #f8f9fa; /* 줄무늬 배경 */
-        }
-        .accuracy-table tbody tr:hover {
-            background-color: #e2f2ff; /* 호버 효과 */
-        }
-
-
-        /* 코드 강조 */
         code {
             font-family: monospace;
             background-color: #f0f0f0;
             padding: 2px 6px;
             border-radius: 4px;
-            color: #dc3545; /* 강조색 */
+            color: #dc3545;
             font-weight: 600;
             font-size: 0.9em;
         }
-        
-        /* 비디오 컨테이너 */
+
         .video-container {
             margin-top: 20px;
             text-align: center;
             padding: 15px;
-            background-color: #f1f7fe; /* 비디오 영역 배경색 */
+            background-color: #f1f7fe;
             border-radius: 8px;
-            border: 1px dashed #ced4da; /* 점선 테두리 */
+            border: 1px dashed #ced4da;
         }
-        .project-video {
-            width: 100%;
-            max-width: 600px; /* PC에서 최대 크기 조정 */
-            height: auto;
-            border-radius: 6px;
-        }
+        .project-video { width: 100%; max-width: 600px; height: auto; border-radius: 6px; }
 
-        /* 다운로드 섹션 및 링크 */
         .download-section {
             text-align: center;
             padding: 30px;
@@ -186,10 +166,10 @@
             border: 1px solid #cceeff;
             border-radius: 10px;
         }
-        
+
         .project-link {
             display: block;
-            background-color: #007bff; /* 메인 컬러 사용 */
+            background-color: var(--accent);
             color: #ffffff;
             padding: 15px 25px;
             text-decoration: none;
@@ -199,11 +179,8 @@
             font-size: 1.1em;
             transition: background-color 0.3s;
         }
-        .project-link:hover {
-            background-color: #0056b3;
-        }
-        
-        /* 푸터 */
+        .project-link:hover { background-color: #0056b3; }
+
         footer {
             text-align: center;
             padding: 20px 0;
@@ -216,164 +193,121 @@
 </head>
 <body>
 
-    <header>
-        <div class="header-content">
-            <h1>교육용: 실시간 딥러닝 기반 제어 시스템 개발 심화 분석</h1>
-            <p>GPU 가속 및 Human-Like 로직을 활용한 고성능 제어 시스템 연구 자료</p>
+<header>
+    <div class="header-content">
+        <h1>교육용: 실시간 딥러닝 기반 제어 시스템 개발 심화 분석</h1>
+        <p>GPU 가속 및 Human-Like 로직을 활용한 고성능 제어 시스템 연구 자료</p>
+    </div>
+</header>
+
+<button id="themeToggle">🌙</button>
+
+<main>
+    <!-- 프로젝트 개요 -->
+    <section id="project-overview" class="section-container">
+        <h2>1. 프로젝트 개요 및 동기</h2>
+        <p>본 연구는 <strong>YOLOv8</strong> 딥러닝 모델을 활용하여 실시간 제어 루프를 구축하고 GPU 가속 및 Human-Mode 로직의 성능을 분석합니다.</p>
+        <h3>학습 목표 요약</h3>
+        <table>
+            <thead>
+                <tr><th>기술 요소</th><th>핵심 내용</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>핵심 라이브러리</td><td>Python (YOLOv8, mss, TensorRT, win32api)</td></tr>
+                <tr><td>제어 이론</td><td>비례 제어(P-제어) 및 Human-Mode 이동 로직</td></tr>
+                <tr><td>성능 최적화</td><td>TensorRT 엔진 변환 및 GPU 가속</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 시스템 아키텍처 -->
+    <section id="system-architecture" class="section-container">
+        <h2>2. 시스템 아키텍처</h2>
+        <ul class="learning-goals">
+            <li>고속 화면 캡처 (mss) - ROI 기반</li>
+            <li>TensorRT 기반 딥러닝 엔진 - GPU 최적화</li>
+            <li>마우스 이동 제어 함수 - Human Mode / Sense Mode</li>
+        </ul>
+    </section>
+
+    <!-- 구현 및 코드 분석 -->
+    <section id="code-analysis" class="section-container">
+        <h2>3. 구현 방식 및 동작 원리</h2>
+        <p>화면을 캡처하고 딥러닝 모델이 목표 좌표를 예측 → 비례 제어로 마우스 이동.</p>
+        <h4>핵심 함수</h4>
+        <ul class="learning-goals">
+            <li><code>move_mouse(x_offset, y_offset, human_mode)</code> - 인간적 이동 vs 빠른 이동</li>
+            <li><code>convert_to_tensorrt()</code> - YOLOv8 GPU 최적화 엔진 생성</li>
+            <li><code>aim_at_target(detections_data,...)</code> - 목표 좌표 계산 및 마우스 이동</li>
+        </ul>
+
+        <div class="video-container">
+            <video class="project-video" controls loop autoplay muted>
+                <source src="project_demo.mp4" type="video/mp4">
+                <p>브라우저가 비디오 태그를 지원하지 않습니다. <a href="project_demo.mp4">MP4 다운로드</a></p>
+            </video>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <section id="project-overview" class="section-container">
-            <h2>1. 프로젝트 개요 및 동기 (핵심 원리 이해)</h2>
-            <p>본 연구는 **컴퓨터 비전(CV)** 기술, 특히 **YOLOv8** 딥러닝 모델을 활용하여 실시간으로 외부 시스템을 제어하는 **저지연 피드백 루프**를 구축하고, GPU 가속화 및 휴먼 모드 로직의 성능 기여도를 심층적으로 분석하는 것을 목표로 합니다.</p>
-            <p>가장 중요한 동기는 **'GPU 가속화 (TensorRT)'**를 통해 화면 분석 속도를 극대화하고, **'Human-Mode' 제어 로직**을 적용하여 안정적이고 비정형적인 제어 성능을 확보하는 방법을 실제 코드로 검증하고 학습하는 것입니다.</p>
+    <!-- 성능 분석 -->
+    <section id="performance" class="section-container">
+        <h2>4. 성능 분석</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>항목</th>
+                    <th>사람 (수동)</th>
+                    <th>V1.0</th>
+                    <th>V2.0</th>
+                    <th>V3.0 목표</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>FPS</td><td>60</td><td>45</td><td>60~100</td><td>144+</td></tr>
+                <tr><td>Latency</td><td>50ms</td><td>20ms</td><td>10ms</td><td>5ms</td></tr>
+                <tr><td>명중률</td><td>40%</td><td>38%</td><td>55%</td><td>70%+</td></tr>
+            </tbody>
+        </table>
+    </section>
 
-            <h3>주요 학습 목표 요약</h3>
-            <table class="tech-table">
-                <thead>
-                    <tr>
-                        <th>기술 요소</th>
-                        <th>핵심 내용</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>핵심 라이브러리</td>
-                        <td>Python (YOLOv8, mss, TensorRT, win32api)</td>
-                    </tr>
-                    <tr>
-                        <td>제어 이론</td>
-                        <td>**비례 제어 (P-제어) 및 Human-Mode/Sensitivity 기반 이동 로직**</td>
-                    </tr>
-                    <tr>
-                        <td>성능 최적화</td>
-                        <td>**NVIDIA TensorRT 엔진 변환 및 추론 가속**</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+    <!-- 향후 연구 -->
+    <section id="research-future" class="section-container">
+        <h2>5. 향후 연구</h2>
+        <ul class="learning-goals">
+            <li>PID 제어 루프 확장</li>
+            <li>다중 스레딩 최적화</li>
+            <li>실시간 제어 성능 5ms 이하 목표</li>
+        </ul>
+    </section>
 
-        <section id="system-architecture" class="section-container">
-            <h2>2. 시스템 아키텍처 (저지연 파이프라인)</h2>
-            <p>시스템은 데이터 수집 (화면 캡처), **딥러닝 추론 (GPU)**, 로직 처리 (제어)의 세 가지 모듈로 구성되어 **순차적으로 최적화**되었습니다. 특히 추론 시간을 최소화하여 전체 시스템의 지연 시간(Latency)을 낮추는 데 중점을 두었습니다.</p>
+    <!-- 연구 윤리 및 다운로드 -->
+    <section id="ethics-statement" class="section-container download-section">
+        <h2>6. 연구 윤리 및 자료 안내</h2>
+        <p>학술/교육 목적만 사용. 상업적/부정적 활용 금지.</p>
+        <a href="https://github.com/seoan1210/overwatch-aim.git" target="_blank" class="project-link">GitHub 연구 자료 확인</a>
+    </section>
+</main>
 
-            <h3>핵심 구성 요소 상세 설명</h3>
-            <ul class="learning-goals">
-                <li>**고속 화면 캡처 모듈 (mss):** <code>mss</code> 라이브러리를 사용하여 전체 화면이 아닌 **화면 중앙의 작은 영역 (ROI)**만을 캡처하여 데이터 로딩 시간을 최소화했습니다.
-                    <span class="sub-description">**배경:** 캡처 지연 시간은 실시간 시스템의 첫 번째 병목 현상이므로, 여기서 1~2 밀리초 이내의 속도를 확보하는 것이 중요합니다.</span>
-                </li>
-                <li>**TensorRT 기반 딥러닝 엔진:** YOLOv8 모델을 **NVIDIA TensorRT 엔진**으로 변환하여 GPU에서 **극도의 고속 추론**을 수행합니다.
-                    <span class="sub-description">**배경:** 일반적인 PyTorch 추론보다 수 배 빠른 속도를 달성하여, 실시간 60 FPS 이상의 분석 속도에 기여합니다.</span>
-                </li>
-                <li>**마우스 이동 제어 함수 (`move_mouse`):** 사용자의 요청에 따라 `human_mode`와 `sensitivity` 기반의 이동 로직을 분리하여 적용했습니다.
-                    <span class="sub-description">**Human Mode:** 큰 `smoothness` (15~35) 값으로 나누어 **인간적인 부드럽고 느린 움직임**을 구현합니다. / **Sense Mode:** `sensitivity` (0.4~0.5) 값을 곱하여 **빠르고 민감한 제어**를 구현합니다.</span>
-                </li>
-            </ul>
-        </section>
+<footer>
+    <p>Project by seoan1210 | &copy; 2025 Advanced Control System Research | All Rights Reserved.</p>
+</footer>
 
-        <section id="code-analysis" class="section-container">
-            <h2>3. 구현 방식 및 동작 원리 (기술 깊이 파헤치기)</h2>
-            <p>시스템은 화면을 초당 60~100회 이상 캡처하고, 딥러닝 모델이 목표물의 중심 좌표를 예측하면, **비례 제어 원리**를 기반으로 계산된 오차를 `move_mouse` 함수에 전달하여 마우스를 제어합니다.</p>
+<script>
+    // 다크 모드 토글
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', () => {
+        document.body.dataset.theme = document.body.dataset.theme === 'dark' ? '' : 'dark';
+    });
 
-            <div class="analysis-list">
-                <div class="analysis-item">
-                    <h4>TensorRT 가속 및 YOLOv8 통합</h4>
-                    <ul class="learning-goals">
-                        <li>**모델 통합:** **YOLOv8** 모델을 사용하여 객체 검출의 정확도를 높였습니다. 이는 이전 버전의 단순 색상/HOG 기반 검출보다 훨씬 강력한 성능을 제공합니다.
-                        </li>
-                        <li>**가속화 원리:** <code>convert_to_tensorrt()</code> 함수를 통해 모델을 **GPU 최적화 엔진**으로 변환하여, CPU 병목 현상 없이 **딥러닝 추론**을 수행합니다.</li>
-                    </ul>
-                </div>
-                <div class="analysis-item">
-                    <h4>비례 제어 및 Human-Mode 로직</h4>
-                    <ul class="learning-goals">
-                        <li>**이동량 계산:** 제어 함수 `aim_at_target` 내에서 `delta_x`와 `delta_y`를 계산하여 목표물과의 오차를 파악합니다.</li>
-                        <li>**제어 모드 적용:** 오차 값은 **`move_mouse(delta_x, delta_y, human_mode=False)`** 함수로 전달되며, 이 함수는 현재 모드(`HUMAN_MODE_ACTIVE`)에 따라 이동량을 조절하여 **오버슈트와 규칙성을 제어**합니다.</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <h3 style="margin-top: 25px;">프로젝트 핵심 시연 영상 (MP4)</h3>
-            
-            <div class="video-container">
-                <video class="project-video" controls loop autoplay muted>
-                    <source src="project_demo.mp4" type="video/mp4">
-                    
-                    <p>사용하시는 브라우저가 비디오 태그를 지원하지 않습니다. <a href="project_demo.mp4">MP4 파일을 직접 다운로드</a>하여 확인해 주십시오.</p>
-                </video>
-                <p class="sub-description" style="text-align: center; margin-top: 10px;">**참고:** 인터넷 환경에서 영상이 정상적으로 재생됩니다.</p>
-            </div>
-            </section>
-
-        <section id="performance" class="section-container">
-            <h2>4. 성능 분석 및 검증 (수치로 보는 결과)</h2>
-            <p>V2.0은 TensorRT 가속화를 통해 100 프레임에 근접한 속도와 10 밀리초 수준의 낮은 지연 시간을 달성했습니다. 특히, 딥러닝 기반 탐지 정확도 향상을 통해 사람의 수동 조작 평균 명중률(40 퍼센트)을 뛰어넘는 55 퍼센트의 정확도를 기록했습니다.</p>
-            
-            <table class="accuracy-table">
-                <thead>
-                    <tr>
-                        <th>시스템 요소 / 항목</th>
-                        <th>사람 (수동 조작 평균)</th>
-                        <th>버전 V1.0 (HSV/초기)</th>
-                        <th>버전 V2.0 (YOLO/TensorRT)</th>
-                        <th>V3.0 목표 (연구)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>처리 속도 (초당 프레임 수)</td>
-                        <td>약 60 프레임/초</td>
-                        <td>약 45 프레임/초</td>
-                        <td>**60 ~ 100 프레임/초**</td>
-                        <td>144 프레임/초 이상</td>
-                    </tr>
-                    <tr>
-                        <td>End-to-End 지연 시간 (Latency)</td>
-                        <td>약 50 밀리초</td>
-                        <td>약 20 밀리초</td>
-                        <td>**약 10 밀리초**</td>
-                        <td>5 밀리초 미만</td>
-                    </tr>
-                    <tr>
-                        <td>명중률 (CV 정확도)</td>
-                        <td>약 40 퍼센트</td>
-                        <td>약 38 퍼센트</td>
-                        <td>**약 55 퍼센트**</td>
-                        <td>70 퍼센트 이상</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="sub-description" style="text-align: center; margin-top: 15px;">**주목할 점:** V2.0은 딥러닝 모델 도입과 GPU 가속을 통해 사람의 평균 반응 속도(약 50 밀리초)보다 훨씬 빠른 약 10 밀리초의 지연 시간을 기록했습니다. 이는 제어 시스템의 고속 처리 능력을 증명합니다.</p>
-        </section>
-        
-        <section id="research-future" class="section-container">
-            <h2>5. 결론 및 향후 연구 방향 (다음 단계)</h2>
-            <ul class="learning-goals">
-                <li>**주요 성과:** **TensorRT 가속화**와 **YOLOv8** 기반의 객체 검출을 통합하여 **저지연, 고정확도의 딥러닝 실시간 제어 시스템**을 성공적으로 구축하고 성능을 검증했습니다.</li>
-                <li>**얻은 교훈:** **모델 최적화 (TensorRT)**가 복잡한 제어 알고리즘보다 **지연 시간 최소화**에 더 큰 영향을 미치며, 이는 실시간 시스템 성능의 핵심 요소임을 확인했습니다.</li>
-            </ul>
-            
-            <h3 style="margin-top: 25px;">향후 심화 연구 계획</h3>
-            <ul class="learning-goals">
-                <li>**PID 제어 루프 확장:** 비례 제어를 비례-적분-미분 제어 (PID 제어)로 확장하여 잔류 오차를 완전히 제거하고 제어 응답을 최적화하는 연구를 진행할 예정입니다.</li>
-                <li>**다중 스레딩 최적화:** 딥러닝 추론과 마우스 제어를 각각의 독립된 고속 스레드로 분리하는 아키텍처를 도입하여, CPU 리소스를 더욱 효율적으로 사용하여 최종 지연 시간 **5ms 미만**을 목표로 합니다.</li>
-            </ul>
-        </section>
-
-        <section id="ethics-statement" class="section-container download-section">
-            <h2>6. 연구 윤리 선언 및 자료 안내</h2>
-            <p style="margin-bottom: 15px;">본 프로젝트는 엄격한 **학술적 분석** 및 **교육** 목적으로만 설계되었으며, 어떠한 상업적 또는 부정 행위 목적으로의 활용을 권장하지 않음을 명확히 선언합니다.</p>
-            
-            <p style="font-size: 1em; color: #333;">프로젝트 소스 코드 및 TensorRT 변환 로직이 포함된 연구 자료를 확인하고 싶으시다면 아래 링크를 참고하여 주십시오.</p>
-            
-            <a href="https://github.com/seoan1210/overwatch-aim.git" target="_blank" class="project-link">연구 자료 GitHub (YOLO & TensorRT 포함)</a>
-        </section>
-    </main>
-
-    <footer>
-        <p>Project by seoan1210 | &copy; 2025 Advanced Control System Research. | All Rights Reserved.</p>
-    </footer>
+    // 스크롤 시 섹션 fade-in
+    const sections = document.querySelectorAll('.section-container');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    sections.forEach(sec => observer.observe(sec));
+</script>
 
 </body>
 </html>
