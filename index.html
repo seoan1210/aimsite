@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>교육용: 실시간 제어 시스템 개발 및 성능 분석 자료</title>
+    <title>교육용: 초고속 인공지능 (AI) 시야 확보 및 마우스 제어 시스템</title>
     <link href="https://fonts.googleapis.com/css2?family=Malgun+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        /* --- 기본 설정 및 UI 개선 --- */
+        /* --- 기본 설정 및 UI 개선 (이전 스타일 유지 및 다크 모드 개선) --- */
         :root {
             --bg: #f8f9fa;
             --text: #212529;
@@ -33,7 +33,6 @@
             transition: all 0.3s;
         }
 
-        /* 헤더 */
         header {
             background-color: var(--card);
             padding: 40px 20px;
@@ -55,7 +54,6 @@
             margin: 0;
         }
 
-        /* 다크 모드 버튼 */
         #themeToggle {
             position: fixed;
             top: 20px;
@@ -95,7 +93,7 @@
         }
 
         h2 {
-            color: #343a40;
+            color: var(--text);
             font-size: 1.7em;
             border-bottom: 3px solid var(--accent);
             padding-bottom: 10px;
@@ -105,7 +103,7 @@
         }
 
         h3 {
-            color: #495057;
+            color: var(--text);
             font-size: 1.3em;
             margin-top: 20px;
             margin-bottom: 10px;
@@ -122,31 +120,51 @@
 
         p { margin-bottom: 15px; }
         ul { padding-left: 25px; }
-        .learning-goals li { margin-bottom: 6px; }
+        .learning-goals li { margin-bottom: 8px; }
+
         .sub-description {
             font-size: 0.9em;
             color: var(--subtext);
             margin-top: 5px;
             margin-bottom: 10px;
             display: block;
-            border-left: 4px solid #adb5bd;
+            border-left: 4px solid var(--accent);
             padding-left: 12px;
+            background-color: rgba(0, 123, 255, 0.05);
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius: 4px;
+        }
+        [data-theme="dark"] .sub-description {
+            background-color: rgba(51, 153, 255, 0.1);
         }
 
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #dee2e6; padding: 12px; text-align: center; }
-        th { background-color: #e9ecef; font-weight: 700; }
-        tbody tr:nth-child(even) { background-color: #f8f9fa; }
-        tbody tr:hover { background-color: #e2f2ff; }
+        th, td { 
+            border: 1px solid var(--subtext);
+            padding: 12px; 
+            text-align: center; 
+        }
+        th { 
+            background-color: var(--bg);
+            font-weight: 700; 
+        }
+        tbody tr:nth-child(even) { background-color: var(--bg); }
+        tbody tr:hover { background-color: #e2f2ff; color: #000; }
+        [data-theme="dark"] tbody tr:hover { background-color: #003366; color: #fff; }
 
         code {
             font-family: monospace;
-            background-color: #f0f0f0;
+            background-color: var(--bg);
             padding: 2px 6px;
             border-radius: 4px;
             color: #dc3545;
             font-weight: 600;
             font-size: 0.9em;
+        }
+        [data-theme="dark"] code {
+             background-color: #333;
+             color: #ff8080;
         }
 
         .video-container {
@@ -157,6 +175,10 @@
             border-radius: 8px;
             border: 1px dashed #ced4da;
         }
+        [data-theme="dark"] .video-container {
+             background-color: #2a2a2a;
+             border: 1px dashed #6c757d;
+        }
         .project-video { width: 100%; max-width: 600px; height: auto; border-radius: 6px; }
 
         .download-section {
@@ -165,6 +187,10 @@
             background-color: #eaf3ff;
             border: 1px solid #cceeff;
             border-radius: 10px;
+        }
+        [data-theme="dark"] .download-section {
+             background-color: #002244;
+             border: 1px solid #0056b3;
         }
 
         .project-link {
@@ -189,56 +215,70 @@
             font-size: 0.85em;
             margin-top: 20px;
         }
+        [data-theme="dark"] footer {
+             border-top: 1px solid #333;
+        }
     </style>
 </head>
 <body>
 
 <header>
     <div class="header-content">
-        <h1>교육용: 실시간 딥러닝 기반 제어 시스템 개발 심화 분석</h1>
-        <p>GPU 가속 및 Human-Like 로직을 활용한 고성능 제어 시스템 연구 자료</p>
+        <h1>교육용: 초고속 인공지능 (AI) 시야 확보 및 마우스 제어 시스템</h1>
+        <p>컴퓨터의 눈(AI)과 GPU의 힘을 빌려 사람보다 빠르게 목표물을 조준하는 기술 연구</p>
     </div>
 </header>
 
 <button id="themeToggle">🌙</button>
 
 <main>
-    <!-- 프로젝트 개요 -->
     <section id="project-overview" class="section-container">
-        <h2>1. 프로젝트 개요 및 동기</h2>
-        <p>본 연구는 <strong>YOLOv8</strong> 딥러닝 모델을 활용하여 실시간 제어 루프를 구축하고 GPU 가속 및 Human-Mode 로직의 성능을 분석합니다.</p>
-        <h3>학습 목표 요약</h3>
+        <h2>1. 프로젝트 목표와 핵심 기술</h2>
+        <p>우리 프로젝트는 **컴퓨터에게 '뛰어난 눈'과 '정확한 손'을 주는 방법**을 연구하는 것입니다. AI는 화면을 보고 적이 어디 있는지 순식간에 파악하고, 그 정보를 바탕으로 마우스를 움직여 조준합니다. 이 모든 과정을 사람이 **눈을 깜빡이는 시간보다 훨씬 빠르게** 진행하는 것이 목표입니다. 이것은 마치 **운전 중인 자율 주행 자동차가 앞에 있는 사람을 보고 브레이크를 밟는 과정**과 비슷합니다. AI가 목표물을 얼마나 빨리 보고, 얼마나 정확하게 행동할지 연구하는 것이죠.</p>
+        <p>특히, **AI가 보고 판단하는 데 걸리는 시간(지연 시간)**을 줄이는 것이 중요했습니다. 아무리 정확히 봐도 반응이 느리면 소용이 없기 때문입니다. 우리는 고성능 AI 모델인 **YOLOv8**을 사용했지만, 이것만으로는 부족해서 **TensorRT**라는 초고속 엔진으로 AI를 한 번 더 튜닝했습니다. 덕분에 AI가 **슈퍼 컴퓨터**처럼 빠르게 작동할 수 있게 되었습니다. 이 기술은 자율 주행, 공장 자동화 로봇 등 **순간적인 반응 속도**가 필요한 모든 분야에 응용될 수 있는 핵심 기술입니다.</p>
+        <h3>기술 요약</h3>
         <table>
             <thead>
-                <tr><th>기술 요소</th><th>핵심 내용</th></tr>
+                <tr><th>무엇을 만들었나요?</th><th>어떤 기술을 썼나요?</th></tr>
             </thead>
             <tbody>
-                <tr><td>핵심 라이브러리</td><td>Python (YOLOv8, mss, TensorRT, win32api)</td></tr>
-                <tr><td>제어 이론</td><td>비례 제어(P-제어) 및 Human-Mode 이동 로직</td></tr>
-                <tr><td>성능 최적화</td><td>TensorRT 엔진 변환 및 GPU 가속</td></tr>
+                <tr><td>실시간 목표 추적 시스템</td><td>**YOLOv8** (인공지능 모델), **TensorRT** (초고속 엔진)</td></tr>
+                <tr><td>정밀 마우스 제어</td><td>**누적 오차 보정** (실수 없이 정확히 움직이기)</td></tr>
+                <tr><td>성능 개선</td><td>**GPU 가속** 및 **화면 일부만 보기** (ROI)</td></tr>
             </tbody>
         </table>
     </section>
 
-    <!-- 시스템 아키텍처 -->
     <section id="system-architecture" class="section-container">
-        <h2>2. 시스템 아키텍처</h2>
+        <h2>2. AI의 작동 원리 (시스템 파이프라인)</h2>
+        <p>우리 AI는 세 단계를 아주 빠르게 반복합니다. 이 과정을 **'피드백 루프'**라고 부릅니다. 세 단계가 모두 합쳐져야 AI가 목표물을 인식하고 조준할 수 있습니다. 이 루프가 초당 몇 번 반복되느냐가 AI의 성능을 결정합니다. 우리는 이 세 단계를 최대한 빠르게 만들기 위한 특별한 방법을 사용했습니다.</p>
         <ul class="learning-goals">
-            <li>고속 화면 캡처 (mss) - ROI 기반</li>
-            <li>TensorRT 기반 딥러닝 엔진 - GPU 최적화</li>
-            <li>마우스 이동 제어 함수 - Human Mode / Sense Mode</li>
+            <li>**① 고속 화면 캡처: '불필요한 정보는 버리기'**
+                <p class="sub-description">AI에게 모니터 전체 화면(수백만 픽셀)을 보여주는 대신, 우리가 정말 궁금한 **화면 중앙($320 \times 320$ 픽셀)**의 **작은 영역**만 잘라서 보여줍니다. 이것을 **ROI(Region of Interest, 관심 영역)** 기반 캡처라고 합니다. 마치 시험을 볼 때 책 전체가 아니라, **출제된 문제의 지문만** 빠르게 읽는 것과 같습니다. 이렇게 하면 AI가 분석할 데이터가 1/100 정도로 확 줄어들어 시간을 엄청나게 아낄 수 있습니다.</p>
+            </li>
+            <li>**② 초고속 목표 인식 (GPU의 힘): '번개처럼 빠른 판단'**
+                <p class="sub-description">AI가 화면 조각을 받았으면, 목표물이 어디 있는지 판단해야 합니다. 여기서 컴퓨터의 두뇌인 **GPU**를 사용합니다. 일반적인 AI 모델을 **TensorRT**라는 **특수 튜닝 엔진**으로 변환했습니다. 이 과정은 마치 평범한 자동차를 **F1 경주용 자동차**로 개조하는 것과 같습니다. 이 튜닝 엔진은 GPU의 능력을 최대한 끌어내서, **AI의 판단 시간을 10분의 1 이하로 단축**시키는 핵심 기술입니다. 판단이 끝나면 목표물의 정확한 위치(좌표)를 다음 단계로 전달합니다.</p>
+            </li>
+            <li>**③ 마우스 제어: '컴퓨터에게 직접 명령하기'**
+                <p class="sub-description">AI가 "목표물은 여기 있다!"라고 알려주면, 소프트웨어는 **win32api**라는 컴퓨터의 기본 기능을 이용해 마우스를 움직입니다. 이것은 마치 **키보드 드라이버가 키 입력 신호를 보내는 것과 똑같은 방식**으로 마우스 이동 신호를 보내는 것입니다. 외부 기계를 쓰는 것이 아니라, 컴퓨터 자체의 가장 기본적인 기능을 사용하는 것입니다. 이렇게 해야 명령이 가장 빠르게 전달될 수 있습니다.</p>
+            </li>
         </ul>
     </section>
 
-    <!-- 구현 및 코드 분석 -->
     <section id="code-analysis" class="section-container">
-        <h2>3. 구현 방식 및 동작 원리</h2>
-        <p>화면을 캡처하고 딥러닝 모델이 목표 좌표를 예측 → 비례 제어로 마우스 이동.</p>
-        <h4>핵심 함수</h4>
+        <h2>3. 똑똑한 마우스 제어 방법</h2>
+        <p>단순히 마우스를 목표물 위치로 움직이는 것이 아니라, **'실수 없이 정확하게', '때로는 사람처럼 부드럽게'** 움직이기 위한 특별한 기술들을 코드에 적용했습니다. 이것이 우리 프로젝트의 가장 똑똑한 부분입니다.</p>
+        <h4>핵심 마우스 제어 기술</h4>
         <ul class="learning-goals">
-            <li><code>move_mouse(x_offset, y_offset, human_mode)</code> - 인간적 이동 vs 빠른 이동</li>
-            <li><code>convert_to_tensorrt()</code> - YOLOv8 GPU 최적화 엔진 생성</li>
-            <li><code>aim_at_target(detections_data,...)</code> - 목표 좌표 계산 및 마우스 이동</li>
+            <li>**오차 보정 (누적 오차): 소수점 실수 없애기**
+                <p class="sub-description">AI는 마우스를 "3.7칸" 움직이라고 계산할 수 있지만, 컴퓨터는 마우스를 "3칸" 또는 "4칸"처럼 **정수(딱 떨어지는 숫자) 단위**로만 움직일 수 있습니다. 만약 "3칸"만 움직이면, 남은 **0.7칸의 실수**가 발생하겠죠? 이 실수를 버리지 않고 **'누적 오차'**라는 주머니에 담아둡니다. 그리고 다음 번 이동 명령이 왔을 때, 이 주머니 속의 0.7칸을 더해서 마우스를 움직입니다. 이처럼 작은 오차도 놓치지 않고 다음 기회에 보정하는 기술 덕분에 AI는 **장거리 조준에서도 완벽한 정확도**를 유지할 수 있습니다.</p>
+            </li>
+            <li>**Human Mode (인간적인 움직임): 조절 가능한 속도**
+                <p class="sub-description">F3 키를 누르면 AI의 움직임이 갑자기 **느려지고 부드러워집니다**. 이것은 마우스를 이동시키는 속도에 **'Human Factor'($\text{SMOOTH\_FACTOR}=8$)**를 적용했기 때문입니다. AI가 너무 기계적으로 움직이는 것을 막고, 사람이 조준하는 것과 비슷한 **느리고 부드러운 궤적**을 만들 수 있도록 연구하는 모드입니다. 이 모드를 통해 AI 시스템이 실제 사람과 어떤 점이 다르고, 어떻게 조화를 이룰 수 있는지 연구할 수 있습니다.</p>
+            </li>
+            <li>**헤드샷 조준점 (타겟팅 휴리스틱): 정수리 조준**
+                <p class="sub-description">AI는 목표물(캐릭터)의 발부터 머리까지 전체 상자 영역을 인식합니다. 하지만 우리는 마우스를 움직일 때 상자 중앙이 아니라, **상자 높이의 1/6 지점**($y_{1} + \frac{(y_{2} - y_{1})}{6}$)으로 조준점을 고정했습니다. 이 지점이 보통 캐릭터의 **머리**에 해당하기 때문입니다. 이것은 게임의 특성을 고려하여 **가장 효율적인 조준점**을 찾기 위한 우리만의 연구 공식입니다.</p>
+            </li>
         </ul>
 
         <div class="video-container">
@@ -246,58 +286,74 @@
                 <source src="project_demo.mp4" type="video/mp4">
                 <p>브라우저가 비디오 태그를 지원하지 않습니다. <a href="project_demo.mp4">MP4 다운로드</a></p>
             </video>
-        </div>
+        </div
     </section>
 
-    <!-- 성능 분석 -->
     <section id="performance" class="section-container">
-        <h2>4. 성능 분석</h2>
+        <h2>4. 성능 분석: 사람보다 얼마나 빠른가요?</h2>
+        <p>우리 프로젝트의 가장 큰 자랑은 **TensorRT 엔진** 덕분에 **AI의 반응 속도(Latency)**를 획기적으로 줄인 것입니다. 일반적인 사람의 반응 속도는 **100밀리초($\text{ms}$)**가 넘습니다. AI는 이것을 10분의 1 수준으로 줄였습니다.</p>
         <table>
             <thead>
                 <tr>
                     <th>항목</th>
-                    <th>사람 (수동)</th>
-                    <th>V1.0</th>
-                    <th>V2.0</th>
+                    <th>V1.0 (일반 AI)</th>
+                    <th>V2.0 (**TensorRT 적용**)</th>
                     <th>V3.0 목표</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td>FPS</td><td>60</td><td>45</td><td>60~100</td><td>144+</td></tr>
-                <tr><td>Latency</td><td>50ms</td><td>20ms</td><td>10ms</td><td>5ms</td></tr>
-                <tr><td>명중률</td><td>40%</td><td>38%</td><td>55%</td><td>70%+</td></tr>
+                <tr><td>**AI 반응 속도 (Latency)**</td><td>20밀리초($\text{ms}$)</td><td>**10밀리초($\text{ms}$) 이하**</td><td>5밀리초($\text{ms}$) 이하</td></tr>
+                <tr><td>**초당 처리 횟수 (FPS)**</td><td>45회</td><td>**60~100회**</td><td>144회 이상</td></tr>
+                <tr><td>**명중률**</td><td>38%</td><td>**55%**</td><td>70% 이상</td></tr>
             </tbody>
         </table>
+        <p>**10밀리초($\text{ms}$)**는 정말 짧은 시간입니다. 눈을 한 번 깜빡이는 시간이 약 $300\text{ms}$ 정도인데, AI는 그 시간 동안 **30번**이나 목표를 보고 조준할 수 있다는 뜻입니다. 다음 목표인 **5$\text{ms}$**는 컴퓨터 모니터의 가장 좋은 성능인 **144$\text{Hz}$ 주사율**과 발맞추는 속도입니다. 이 목표를 달성하면 AI는 **모니터가 보여주는 화면 변화를 놓치지 않고** 모두 반응할 수 있는 완벽한 제어 시스템이 됩니다.</p>
+        <p>우리는 현재 **Windows 운영체제와 마우스 제어 신호가 오가는 과정**에서 발생하는 아주 짧은 시간 낭비($\text{Bottleneck}$)를 줄이기 위해 연구 중입니다. 즉, AI가 아무리 빨리 판단해도 **"마우스 신호가 컴퓨터에 전달되는 시간"**이 병목이 될 수 있는데, 이것을 어떻게 줄일지 연구하는 것이 V3.0의 핵심입니다.</p>
+        <span class="sub-description">※ Latency는 AI가 보고, 판단하고, 마우스를 움직이는 데 걸리는 전체 시간입니다.</span>
     </section>
 
-    <!-- 향후 연구 -->
     <section id="research-future" class="section-container">
-        <h2>5. 향후 연구</h2>
+        <h2>5. 다음 목표와 미래 연구</h2>
+        <p>현재 AI는 **'목표물과의 거리에 비례해서 마우스를 움직이는(P-제어)'** 방식입니다. 이 방식은 빠르지만, 가끔 목표를 지나쳐서 조준하는 실수(오버슈트)를 할 수 있습니다. 우리는 이러한 실수를 줄이고, AI가 더 똑똑하게 움직이도록 하기 위한 계획을 세웠습니다.</p>
         <ul class="learning-goals">
-            <li>PID 제어 루프 확장</li>
-            <li>다중 스레딩 최적화</li>
-            <li>실시간 제어 성능 5ms 이하 목표</li>
+            <li>**더 완벽한 제어: PID 제어**
+                <p class="sub-description">현재 마우스 제어에 **'미분(D)'** 항과 **'적분(I)'** 항을 추가한 **PID 제어** 방식을 완성합니다. 이것은 **"과거의 실수(I)"**를 기억하고 **"미래에 실수할 것(D)"**을 미리 예측해서 조준합니다. 그 결과 마우스가 목표물에 **가장 안정적으로 멈추게** 됩니다. PID 제어는 로켓 발사, 산업용 로봇 등 **정밀한 제어가 필요한 모든 분야**에서 사용되는 핵심 기술입니다.</p>
+            </li>
+            <li>**동시에 일하기: 멀티태스킹**
+                <p class="sub-description">현재는 AI가 **화면을 다 볼 때까지(순차 실행)** 다음 단계가 기다려야 합니다. 이것을 개선하여 **'화면을 보는 작업'**과 **'목표를 인식하는 작업'**을 컴퓨터의 여러 코어에서 **동시에(병렬로)** 진행하도록 만들 것입니다. 이것을 **멀티스레딩**이라고 부릅니다. 여러 명이 한 가지 일을 동시에 처리하는 것처럼, AI의 대기 시간을 완전히 없애서 반응 속도를 획기적으로 단축할 수 있습니다.</p>
+            </li>
+            <li>**타겟 예상 기술:**
+                <p class="sub-description">현재는 AI가 **'지금 목표물이 있는 위치'**만 보고 조준합니다. 하지만 목표물이 빠르게 움직인다면 AI가 마우스를 움직이는 사이에 목표물은 이미 다른 곳으로 가겠죠. 우리는 **목표물이 움직이는 속도와 방향**을 분석하여 **'0.01초 뒤에 목표물이 있을 위치'**를 예측하고 조준하는 기술을 추가할 것입니다. 이것은 움직이는 물체를 조준하는 **미사일 유도 시스템**과 같은 원리입니다.</p>
+            </li>
         </ul>
     </section>
 
-    <!-- 연구 윤리 및 다운로드 -->
     <section id="ethics-statement" class="section-container download-section">
-        <h2>6. 연구 윤리 및 자료 안내</h2>
-        <p>학술/교육 목적만 사용. 상업적/부정적 활용 금지.</p>
-        <a href="https://github.com/seoan1210/overwatch-aim.git" target="_blank" class="project-link">GitHub 연구 자료 확인</a>
+        <h2>6. 연구 윤리 및 참고 자료</h2>
+        <p>이 프로젝트는 **컴퓨터의 눈과 제어 기술을 배우기 위한 교육 및 연구 목적**으로만 개발되었습니다. 이 기술을 **게임의 공정성**을 해치는 데 사용하거나 상업적인 목적으로 사용하는 것은 **엄격히 금지**합니다.</p>
+        <a href="https://github.com/seoan1210/overwatch-aim.git" target="_blank" class="project-link">GitHub 연구 자료 확인 및 코드 접근</a>
     </section>
 </main>
 
 <footer>
-    <p>Project by seoan1210 | &copy; 2025 Advanced Control System Research | All Rights Reserved.</p>
+    <p>Project by **seoan1210** | &copy; 2025 Advanced Control System Research | All Rights Reserved. (본 자료는 교육용으로 개발되었습니다.)</p>
 </footer>
 
 <script>
     // 다크 모드 토글
     const toggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.body.dataset.theme = savedTheme;
+    }
     toggle.addEventListener('click', () => {
-        document.body.dataset.theme = document.body.dataset.theme === 'dark' ? '' : 'dark';
+        const currentTheme = document.body.dataset.theme;
+        const newTheme = currentTheme === 'dark' ? '' : 'dark';
+        document.body.dataset.theme = newTheme;
+        localStorage.setItem('theme', newTheme);
+        toggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
     });
+    toggle.textContent = document.body.dataset.theme === 'dark' ? '☀️' : '🌙';
 
     // 스크롤 시 섹션 fade-in
     const sections = document.querySelectorAll('.section-container');
